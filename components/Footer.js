@@ -4,13 +4,13 @@ import { FaGithub, FaTwitter, FaNpm } from 'react-icons/fa';
 const Footer = () => {
 	return (
 		<footer className="bg-[#121212] py-12">
-			<div className="container mx-auto flex flex-wrap justify-between">
-				<div className="w-full p-3 md:w-auto md:mr-auto text-center md:text-left mb-8 sm:mb-0">
-					<h1 className="text-2xl font-bold tracking-tight">
+			<div className="container mx-auto flex flex-col md:flex-row justify-between">
+				<div className=" p-3 md:w-auto md:mr-auto text-center md:text-left mb-8 sm:mb-0">
+					<h1 className="text-2xl font-bold tracking-tight whitespace-nowrap">
 						Tailwind Inputs
 					</h1>
 				</div>
-				<div className="flex flex-col sm:flex-row mx-0 sm:mx-auto md:items-start">
+				<div className="flex flex-1 flex-col w-full sm:flex-row sm:justify-center md:justify-end md:items-start">
 					<div className="p-3 mb-4 sm:mb-0 sm:mr-8">
 						<h3 className="text-lg font-bold mb-2">Category</h3>
 						<ul className="list-none">
