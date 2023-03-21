@@ -71,35 +71,38 @@ const CodeBlock = ({ code, lang }) => {
 	// shadesOfPurple,
 	// vscDarkPlus,
 	return (
-		<div className="relative group bg-[#1e1e1e] rounded-xl mb-6 overflow-x-hidden w-full">
+		<div className="relative group bg-[#1e1e1e] rounded-xl mb-6 w-full">
 			<button
-				className="group absolute top-0 right-0 p-3 opacity-0 bg-[#1e1e1e] group-hover:opacity-100 rounded-lg transition-opacity duration-150"
+				className={`group absolute top-0 right-0 p-4 bg-[#1e1e1e] rounded-lg transition-all duration-150`}
 				onClick={handleCopyClick}
 			>
-				{isCopied ? (
-					<IconContext.Provider
-						value={{
-							size: '1.4em',
-							className:
-								'global-class-name transition-all duration-200',
-						}}
-					>
-						<HiCheck />
-					</IconContext.Provider>
-				) : (
-					<IconContext.Provider
-						value={{
-							size: '1.4em',
-							className:
-								'global-class-name transition-all duration-200',
-						}}
-					>
-						<HiOutlineClipboard />
-					</IconContext.Provider>
-				)}
+				<IconContext.Provider
+					value={{
+						size: '1.4em',
+						className: `global-class-name transition-all duration-300 ${
+							isCopied
+								? 'block visible opacity-100'
+								: 'hidden collapse opacity-0'
+						}`,
+					}}
+				>
+					<HiCheck />
+				</IconContext.Provider>
+				<IconContext.Provider
+					value={{
+						size: '1.4em',
+						className: `global-class-name transition-all duration-300 ${
+							!isCopied
+								? 'block visible opacity-100'
+								: 'hidden collapse opacity-0'
+						}`,
+					}}
+				>
+					<HiOutlineClipboard />
+				</IconContext.Provider>
 				<div
-					className={`absolute -top-full hidden group-hover:block right-1/2 transform translate-x-1/2 translate-y-3/4 bg-[#282828] text-cyan-300/90 px-2 py-1 text-sm rounded-md tracking-wider font-semibold opacity-0 ${
-						isCopied ? 'opacity-100' : 'opacity-0'
+					className={`absolute -top-full right-1/2 transform translate-x-1/2 translate-y-3/4 bg-[#282828] text-cyan-300/90 px-2 py-1 text-sm rounded-md tracking-wider font-semibold ${
+						isCopied ? 'visible opacity-100' : 'invisible opacity-0'
 					} transition-opacity duration-200`}
 				>
 					Copied!

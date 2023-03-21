@@ -180,6 +180,35 @@ const SideNav = () => {
 					<span className="flex-grow"></span>
 				</ul>
 			</div>
+			<div className="mb-2">
+				<div className="p-1 w-full flex items-center space-x-2 text-cyan-200">
+					<IconContext.Provider
+						value={{
+							size: '1.4em',
+							className: 'global-class-name',
+						}}
+					>
+						<GiBookmarklet />
+					</IconContext.Provider>
+					<h1 className=" text-lg font-semibold capitalize">
+						Components
+					</h1>
+				</div>
+				<ul className="h-full w-full flex flex-col justify-evenly space-y-1">
+					<Link
+						className={
+							'rounded-md ml-6 px-3 py-1 w-fit hover:bg-zinc-700/40'
+						}
+						href={'/components/multiselect'}
+					>
+						<div className=" flex items-center">
+							<span className=" text-sm font-semibold capitalize">
+								multiselect
+							</span>
+						</div>
+					</Link>
+				</ul>
+			</div>
 		</div>
 	);
 };

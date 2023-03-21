@@ -2,7 +2,7 @@ import Link from 'next/link';
 import React, { useState } from 'react';
 import CodeBlock from '../../../components/Code';
 import LiveCode from '../../../components/LiveCode';
-import { TiText, TiForm } from '@k8pai/tailwind-inputs';
+import { TiText, TiForm, TiFiles } from '@k8pai/tailwind-inputs';
 import Breadcrums from '../../../components/Breadcrums';
 import Highlight from '../../../components/Highlight';
 import InThisPage from '../../../components/InThisPage';
@@ -252,6 +252,74 @@ export default myComponent;`}
 				<CodeBlock
 					lang={'javascript'}
 					code={`<TiText name={'name'} customize={'border-0'} readOnlyText={'cristiano ronaldo'} readOnly />`}
+				/>
+			</div>
+
+			<div>
+				<div className="flex items-baseline mb-4">
+					<h1
+						id={'Files'}
+						className="text-3xl font-bold font-mono pt-8"
+					>
+						File Input
+					</h1>
+
+					<Breadcrums
+						type={'linking'}
+						url={'/docs/forms/form-control#Files'}
+					/>
+				</div>
+
+				<p className="font-semibold mb-4 text-lg tracking-wider">
+					You can input files through
+				</p>
+
+				<LiveCode>
+					<TiFiles name="files" className={'mb-4 w-fit '}>
+						<TiFiles.Label
+							title={'Select A File'}
+							className={'block text-lg ml-1 font-semibold mb-2'}
+						/>
+						<div className="flex items-center border-2 border-indigo-600 rounded-lg">
+							<TiFiles.File
+								className={
+									'cursor-pointer bg-white m-2 p-2 py-1 shadow rounded-md border border-indigo-600 font-medium'
+								}
+								multiple
+							/>
+
+							<div className="ml-3 mr-5">
+								<TiFiles.Info fallback="Cristiano ronaldo is the best" />
+							</div>
+						</div>
+					</TiFiles>
+				</LiveCode>
+				<CodeBlock
+					lang={'javascript'}
+					code={`import { TiFiles } from '@k8pai/tailwind-inputs';
+
+const Usage = () => {
+	return (
+		<TiFiles name="files" className={'mb-4 w-fit '}>
+			<TiFiles.Label
+				title={'Select A File'}
+				className={'block text-lg ml-1 font-semibold mb-2'}
+			/>
+			<div className="flex items-center border-2 border-indigo-600 rounded-lg">
+				<TiFiles.File
+					className={
+						'cursor-pointer bg-white m-2 p-2 py-1 shadow rounded-md border border-indigo-600 font-medium'
+					}
+					multiple
+				/>
+
+				<div className="ml-3 mr-5">
+					<TiFiles.Info fallback="Cristiano ronaldo is the best" />
+				</div>
+			</div>
+		</TiFiles>
+	);
+};`}
 				/>
 			</div>
 
