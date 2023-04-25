@@ -54,7 +54,10 @@ const overview = () => {
 				<p className="font-semibold mb-4 text-lg tracking-wider">
 					To get started, install Tailwind inputs via npm
 				</p>
-				<CodeBlock type={'sh'} code={`npm i @k8pai/tailwind-inputs`} />
+				<CodeBlock
+					type={'bash'}
+					code={`npm i @k8pai/tailwind-inputs`}
+				/>
 			</div>
 		</div>
 	);
