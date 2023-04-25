@@ -1,23 +1,16 @@
-import { TiForm, TiMultiselect } from '@k8pai/tailwind-inputs';
 import React from 'react';
-import Breadcrums from '../../components/Breadcrums';
-import CodeBlock from '../../components/Code';
-import Highlight from '../../components/Highlight';
-import Installation from '../../components/installation';
-import InThisPage from '../../components/InThisPage';
-import LiveCode from '../../components/LiveCode';
 
-const multiselect = () => {
+const files = () => {
 	const handleSubmit = (values) => {
 		console.log(values);
 	};
 
 	const options = [
-		{ id: 1, name: 'Lionel Messi', disable: false },
-		{ id: 2, name: 'Cristiano Ronaldo', disable: false },
-		{ id: 3, name: 'Neymar Jr.', disable: false },
-		{ id: 4, name: 'Kylian Mbappé', disable: false },
-		{ id: 5, name: 'Kevin De Bruyne', disable: false },
+		{ id: 1, name: 'Durward Reynolds', disable: false },
+		{ id: 2, name: 'Kenton Towne', disable: false },
+		{ id: 3, name: 'Therese Wunsch', disable: false },
+		{ id: 4, name: 'Benedict Kessler', disable: false },
+		{ id: 5, name: 'Katelyn Rohan', disable: false },
 	];
 
 	return (
@@ -25,14 +18,14 @@ const multiselect = () => {
 			<div>
 				<div className="flex items-center justify-between mb-4">
 					<h1 className="text-4xl font-extrabold font-mono">
-						TiMultiselect
+						TiFiles
 					</h1>
 				</div>
 
 				<p className="font-semibold mb-4 text-lg tracking-wider">
-					TiMultiselect can be used in your React applications to
-					easily create a multiselect input field for selecting one or
-					multiple options from a dropdown.
+					TiFiles can be used in your React applications to easily
+					create an input field for selecting a file from your local
+					storage. Support for cloud storages are on the way.
 				</p>
 			</div>
 
@@ -57,9 +50,9 @@ const multiselect = () => {
 				</div>
 
 				<p className="font-semibold mb-4 text-lg tracking-wider">
-					To use the TiMultiselect component in your React
-					application, you need to import it and then use it like any
-					other React component.
+					To use the TiFiles component in your React application, you
+					need to import it and then use it like any other React
+					component.
 				</p>
 
 				<LiveCode bg="white">
@@ -126,4 +119,4 @@ const Example = () => {
 	);
 };
 
-export default multiselect;
+export default files;
