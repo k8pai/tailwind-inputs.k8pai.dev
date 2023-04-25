@@ -17,14 +17,12 @@ const MobileNav = ({ isOpen, onClick }) => {
 	const router = useRouter();
 	const [currPage, setCurrPage] = useState('');
 	useEffect(() => {
-		const page = router.asPath.split('/').pop();
+		// const page = router.asPath.split('/').pop();
 
-		const pageUrl = page.includes('#') ? page.split('#').shift() : page;
-		console.log('page = ', pageUrl);
-		setCurrPage(pageUrl);
+		// const pageUrl = page.includes('#') ? page.split('#').shift() : page;
+		setCurrPage(router.asPath);
 		return () => {};
 	}, [router.asPath]);
-	console.log('currPage = ', currPage);
 	return (
 		<div
 			className={`absolute z-40 h-screen max-w-[250px] w-full transition-all duration-500 top-0 overflow-hidden ${

@@ -1,11 +1,25 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import Head from 'next/head';
 import SideNav from './SideNav';
 import Navigation from './Navigation';
 import Footer from './Footer';
 import InThisPage from './InThisPage';
+import { useRouter } from 'next/router';
 
 const Layout = ({ children }) => {
+	const router = useRouter();
+	const [currPage, setCurrPage] = useState('');
+
+	useEffect(() => {
+		// const page = router.asPath.split('/').pop();
+		// console.log(page);
+		// const pageUrl = page.includes('#') ? page.split('#').shift() : page;
+		// console.log('page = ', pageUrl);
+		setCurrPage(router.asPath);
+
+		return () => {};
+	}, [router.asPath]);
+
 	return (
 		<div className="w-full box-border min-h-screen h-full bg-[#121212] text-[#b3b3b3]">
 			<Head>
@@ -19,14 +33,13 @@ const Layout = ({ children }) => {
 			<div className="w-full mx-auto flex flex-col min-h-screen h-full">
 				<Navigation />
 				<div className="relative max-w-7xl mx-auto w-full h-full p-px flex flex-grow">
-					<SideNav />
+					<SideNav currPage={currPage} />
 					<div className="max-w-[100%] w-full mt-6 p-3 box-border">
 						{children}
 					</div>
 					<div className="hidden max-w-[200px] w-full xl:block">
 						<InThisPage />
 					</div>
-					{/* <SuggestionNav /> */}
 				</div>
 				<Footer />
 			</div>

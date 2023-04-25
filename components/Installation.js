@@ -7,7 +7,10 @@ const Installation = () => {
 	return (
 		<div>
 			<div className="flex items-baseline mb-4">
-				<h1 class="text-3xl font-bold font-mono pt-8" id="installation">
+				<h1
+					className="text-3xl font-bold font-mono pt-8"
+					id="installation"
+				>
 					Installation
 				</h1>
 				<Breadcrums

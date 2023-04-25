@@ -11,20 +11,9 @@ import { RiHome7Fill } from 'react-icons/ri';
 import { TbForms } from 'react-icons/tb';
 import { GiBookmarklet } from 'react-icons/gi';
 import Link from 'next/link';
-import { useRouter } from 'next/router';
 
-const SideNav = () => {
-	const router = useRouter();
-	const [currPage, setCurrPage] = useState('');
-	useEffect(() => {
-		const page = router.asPath.split('/').pop();
-
-		const pageUrl = page.includes('#') ? page.split('#').shift() : page;
-		console.log('page = ', pageUrl);
-		setCurrPage(pageUrl);
-		return () => {};
-	}, [router.asPath]);
-	console.log('currPage = ', currPage);
+const SideNav = ({ currPage }) => {
+	console.log('current path = ', currPage);
 	return (
 		<div className="max-w-[200px] mt-6 w-full h-fit sticky top-2 hidden lg:block box-border p-px pr-2 bg-[#121212]">
 			<div className="mb-2">
@@ -95,7 +84,9 @@ const SideNav = () => {
 				<ul className="h-full w-full flex flex-col justify-evenly space-y-1">
 					<Link
 						className={`rounded-md ml-6 px-3 py-1 w-fit ${
-							currPage === 'overview' ? 'bg-zinc-700/40' : ''
+							currPage === '/docs/forms/overview'
+								? 'bg-zinc-700/40'
+								: ''
 						} hover:bg-zinc-700/40`}
 						href={'/docs/forms/overview'}
 					>
@@ -107,7 +98,9 @@ const SideNav = () => {
 					</Link>
 					<Link
 						className={`rounded-md ml-6 px-3 py-1 w-fit ${
-							currPage === 'form-control' ? 'bg-zinc-700/40' : ''
+							currPage === '/docs/forms/form-control'
+								? 'bg-zinc-700/40'
+								: ''
 						} hover:bg-zinc-700/40`}
 						href={'/docs/forms/form-control'}
 					>
@@ -119,7 +112,9 @@ const SideNav = () => {
 					</Link>
 					<Link
 						className={`rounded-md ml-6 px-3 py-1 w-fit ${
-							currPage === 'select' ? 'bg-zinc-700/40' : ''
+							currPage === '/docs/forms/select'
+								? 'bg-zinc-700/40'
+								: ''
 						} hover:bg-zinc-700/40`}
 						href={'/docs/forms/select'}
 					>
@@ -131,7 +126,9 @@ const SideNav = () => {
 					</Link>
 					<Link
 						className={`rounded-md ml-6 px-3 py-1 w-fit ${
-							currPage === 'checks-radios' ? 'bg-zinc-700/40' : ''
+							currPage === '/docs/forms/checks-radios'
+								? 'bg-zinc-700/40'
+								: ''
 						} hover:bg-zinc-700/40`}
 						href={'/docs/forms/checks-radios'}
 					>
@@ -143,7 +140,9 @@ const SideNav = () => {
 					</Link>
 					<Link
 						className={`rounded-md ml-6 px-3 py-1 w-fit ${
-							currPage === 'range' ? 'bg-zinc-700/40' : ''
+							currPage === '/docs/forms/range'
+								? 'bg-zinc-700/40'
+								: ''
 						} hover:bg-zinc-700/40`}
 						href={'/docs/forms/range'}
 					>
@@ -155,7 +154,9 @@ const SideNav = () => {
 					</Link>
 					<Link
 						className={`rounded-md ml-6 px-3 py-1 w-fit ${
-							currPage === 'range' ? 'bg-zinc-700/40' : ''
+							currPage === '/docs/forms/range'
+								? 'bg-zinc-700/40'
+								: ''
 						} hover:bg-zinc-700/40`}
 						href={'/docs/forms/input-group'}
 					>
@@ -167,7 +168,9 @@ const SideNav = () => {
 					</Link>
 					<Link
 						className={`rounded-md ml-6 px-3 py-1 w-fit ${
-							currPage === 'validation' ? 'bg-zinc-700/40' : ''
+							currPage === '/docs/forms/validation'
+								? 'bg-zinc-700/40'
+								: ''
 						} hover:bg-zinc-700/40`}
 						href={'/docs/forms/validation'}
 					>
@@ -196,14 +199,30 @@ const SideNav = () => {
 				</div>
 				<ul className="h-full w-full flex flex-col justify-evenly space-y-1">
 					<Link
-						className={
-							'rounded-md ml-6 px-3 py-1 w-fit hover:bg-zinc-700/40'
-						}
+						className={`rounded-md ml-6 px-3 py-1 w-fit ${
+							currPage === '/components/multiselect'
+								? 'bg-zinc-700/40'
+								: ''
+						} hover:bg-zinc-700/40`}
 						href={'/components/multiselect'}
 					>
 						<div className=" flex items-center">
 							<span className=" text-sm font-semibold capitalize">
 								multiselect
+							</span>
+						</div>
+					</Link>
+					<Link
+						className={`rounded-md ml-6 px-3 py-1 w-fit ${
+							currPage === '/components/select'
+								? 'bg-zinc-700/40'
+								: ''
+						} hover:bg-zinc-700/40`}
+						href={'/components/select'}
+					>
+						<div className=" flex items-center">
+							<span className=" text-sm font-semibold capitalize">
+								select
 							</span>
 						</div>
 					</Link>

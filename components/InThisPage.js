@@ -1,14 +1,16 @@
 import Link from 'next/link';
+import { useRouter } from 'next/router';
 import React, { useState, useEffect } from 'react';
 import { IconContext } from 'react-icons';
 import { GiBookmarklet } from 'react-icons/gi';
 
 const InThisPage = () => {
+	const router = useRouter();
 	const [headingLinks, setHeadingLinks] = useState([]);
 
 	useEffect(() => {
 		const headingElements = document.querySelectorAll('h1, h2');
-		console.log(headingElements);
+		// console.log(headingElements);
 		const newHeadingLinks = [];
 		headingElements.forEach((element) => {
 			const headingId = element.getAttribute('id');
@@ -22,11 +24,7 @@ const InThisPage = () => {
 			}
 		});
 		setHeadingLinks(newHeadingLinks);
-	}, []);
-
-	useEffect(() => {
-		console.log(headingLinks);
-	}, [headingLinks]);
+	}, [router.asPath]);
 
 	return (
 		<div className="sticky top-2 h-fit mt-0 lg:mt-6 pl-2">
@@ -36,9 +34,6 @@ const InThisPage = () => {
 			<hr className="my-2 w-[90%] ml-1 bg-cyan-400" />
 			<ul className="space-y-1 pl-1">
 				{headingLinks.map(({ headingId, headingLevel, text }) => {
-					{
-						console.log(text, headingLevel);
-					}
 					return (
 						<Link
 							key={headingId}
