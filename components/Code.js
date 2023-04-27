@@ -51,7 +51,7 @@ import {
 import { BsClipboard, BsCheck } from 'react-icons/bs';
 import { HiCheck, HiOutlineClipboard } from 'react-icons/hi';
 
-const CodeBlock = ({ code, lang }) => {
+const CodeBlock = ({ code, copy, lang }) => {
 	const [isCopied, setIsCopied] = useState(false);
 
 	const handleCopyClick = () => {
@@ -72,42 +72,46 @@ const CodeBlock = ({ code, lang }) => {
 	// vscDarkPlus,
 	return (
 		<div className="relative group bg-[#1e1e1e] rounded-xl mb-6 w-full">
-			<button
-				className={`group absolute top-0 right-0 p-4 bg-[#1e1e1e] rounded-lg transition-all duration-150`}
-				onClick={handleCopyClick}
-			>
-				<IconContext.Provider
-					value={{
-						size: '1.4em',
-						className: `global-class-name transition-all duration-300 ${
+			{copy && (
+				<button
+					className={`group absolute top-0 right-0 p-4 bg-[#1e1e1e] rounded-lg transition-all duration-150`}
+					onClick={handleCopyClick}
+				>
+					<IconContext.Provider
+						value={{
+							size: '1.4em',
+							className: `global-class-name transition-all duration-300 ${
+								isCopied
+									? 'block visible opacity-100'
+									: 'hidden collapse opacity-0'
+							}`,
+						}}
+					>
+						<HiCheck />
+					</IconContext.Provider>
+					<IconContext.Provider
+						value={{
+							size: '1.4em',
+							className: `global-class-name transition-all duration-300 ${
+								!isCopied
+									? 'block visible opacity-100'
+									: 'hidden collapse opacity-0'
+							}`,
+						}}
+					>
+						<HiOutlineClipboard />
+					</IconContext.Provider>
+					<div
+						className={`absolute -top-full right-1/2 transform translate-x-1/2 translate-y-3/4 bg-[#282828] text-cyan-300/90 px-2 py-1 text-sm rounded-md tracking-wider font-semibold ${
 							isCopied
-								? 'block visible opacity-100'
-								: 'hidden collapse opacity-0'
-						}`,
-					}}
-				>
-					<HiCheck />
-				</IconContext.Provider>
-				<IconContext.Provider
-					value={{
-						size: '1.4em',
-						className: `global-class-name transition-all duration-300 ${
-							!isCopied
-								? 'block visible opacity-100'
-								: 'hidden collapse opacity-0'
-						}`,
-					}}
-				>
-					<HiOutlineClipboard />
-				</IconContext.Provider>
-				<div
-					className={`absolute -top-full right-1/2 transform translate-x-1/2 translate-y-3/4 bg-[#282828] text-cyan-300/90 px-2 py-1 text-sm rounded-md tracking-wider font-semibold ${
-						isCopied ? 'visible opacity-100' : 'invisible opacity-0'
-					} transition-opacity duration-200`}
-				>
-					Copied!
-				</div>
-			</button>
+								? 'visible opacity-100'
+								: 'invisible opacity-0'
+						} transition-opacity duration-200`}
+					>
+						Copied!
+					</div>
+				</button>
+			)}
 			{/* <pre className="bg-[#181818] text-lg rounded-xl my-0"> */}
 			<SyntaxHighlighter
 				language={lang}
