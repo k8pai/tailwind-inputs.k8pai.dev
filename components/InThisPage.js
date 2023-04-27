@@ -38,10 +38,11 @@ const InThisPage = () => {
 						<Link
 							key={headingId}
 							href={`#${headingId}`}
-							className={`block hover:text-[#e3e3e3] transition-colors duration-200 pl-${
-								headingLevel === 2 ? 2 : headingLevel * 6
+							className={`block hover:text-[#e3e3e3] transition-colors duration-200 ${
+								headingLevel === 2 ? 'pl-8' : 'pl-3'
 							}`}
 						>
+							{/* {headingLevel === 2 ? '|-> ' : null} */}
 							{text}
 						</Link>
 					);
