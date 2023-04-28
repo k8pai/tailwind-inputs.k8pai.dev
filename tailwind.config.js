@@ -30,6 +30,9 @@ module.exports = {
 				// prettier-ignore
 				"montez": ['Montez', 'cursive'],
 			},
+			colors: {
+				highlight: '#82e2ff',
+			},
 		},
 	},
 	plugins: [],
