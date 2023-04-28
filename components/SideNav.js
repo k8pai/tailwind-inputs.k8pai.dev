@@ -81,6 +81,11 @@ const SideNav = ({ currPage }) => {
 			name: 'TiText',
 			disable: false,
 		},
+		{
+			href: '/docs/forms/timail',
+			name: 'TiMail',
+			disable: false,
+		},
 		// {
 		// 	href: '/docs/forms/overview',
 		// 	name: 'Overview',
