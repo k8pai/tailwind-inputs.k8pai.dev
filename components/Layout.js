@@ -11,11 +11,10 @@ const Layout = ({ children }) => {
 	const [currPage, setCurrPage] = useState('');
 
 	useEffect(() => {
-		// const page = router.asPath.split('/').pop();
-		// console.log(page);
-		// const pageUrl = page.includes('#') ? page.split('#').shift() : page;
-		// console.log('page = ', pageUrl);
-		setCurrPage(router.asPath);
+		const path = router.asPath.includes('#')
+			? router.asPath.split('#').shift()
+			: router.asPath;
+		setCurrPage(path);
 
 		return () => {};
 	}, [router.asPath]);
@@ -34,7 +33,7 @@ const Layout = ({ children }) => {
 				<Navigation />
 				<div className="relative max-w-7xl mx-auto w-full h-full p-px flex flex-grow">
 					<SideNav currPage={currPage} />
-					<div className="max-w-[100%] w-full mt-6 p-3 box-border">
+					<div className="max-w-[100%] w-full mt-6 p-3 box-border scroll-smooth">
 						{children}
 					</div>
 					<div className="hidden max-w-[200px] w-full xl:block">
