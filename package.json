@@ -9,7 +9,7 @@
 		"lint": "next lint"
 	},
 	"dependencies": {
-		"@k8pai/tailwind-inputs": "^1.2.54",
+		"@k8pai/tailwind-inputs": "^1.2.58",
 		"@next/font": "13.1.6",
 		"eslint": "8.34.0",
 		"eslint-config-next": "13.1.6",
