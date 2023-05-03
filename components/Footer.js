@@ -13,6 +13,7 @@ const Footer = () => {
 				<div className="flex flex-1 flex-col w-full sm:flex-row sm:justify-center md:justify-end md:items-start">
 					<div className="p-3 mb-4 sm:mb-0 sm:mr-8">
 						<h3 className="text-lg font-bold mb-2">Category</h3>
+						<hr className="mb-4" />
 						<ul className="list-none">
 							<li className="mb-2">
 								<Link
@@ -42,6 +43,7 @@ const Footer = () => {
 					</div>
 					<div className="p-3 mb-4 sm:mb-0 sm:mr-8">
 						<h3 className="text-lg font-bold mb-2">Sitemap</h3>
+						<hr className="mb-4" />
 						<ul className="list-none">
 							<li className="mb-2">
 								<Link
@@ -80,9 +82,10 @@ const Footer = () => {
 
 					<div className="p-3 mb-4 sm:mb-0 sm:mr-8">
 						<h3 className="text-lg font-bold mb-2">Links</h3>
+						<hr className="mb-4" />
 						<ul className="list-none">
 							<Link
-								className="mb-2 block"
+								className="mb-2 flex items-center"
 								href="https://github.com/k8pai/tailwind-inputs"
 								target="_blank"
 							>
@@ -92,7 +95,7 @@ const Footer = () => {
 								</span>
 							</Link>
 							<Link
-								className="mb-2 block"
+								className="mb-2 flex items-center"
 								href="https://twitter.com/k8pai"
 								target="_blank"
 							>
@@ -102,7 +105,7 @@ const Footer = () => {
 								</span>
 							</Link>
 							<Link
-								className="mb-2 block"
+								className="mb-2 flex items-center"
 								href="https://www.npmjs.com/package/@k8pai/tailwind-inputs"
 								target="_blank"
 							>

@@ -1,14 +1,14 @@
 import React from 'react';
 import { TiForm, TiText, TiButton } from '@k8pai/tailwind-inputs';
-import InThisPage from '../../../components/InThisPage';
-import Breadcrums from '../../../components/Breadcrums';
-import LiveCode from '../../../components/LiveCode';
-import CodeBlock from '../../../components/Code';
-import Highlight from '../../../components/Highlight';
-import Paragraph from '../../../components/Paragraph';
-import Table from '../../../components/Table';
+import InThisPage from '../../components/InThisPage';
+import Breadcrums from '../../components/Breadcrums';
+import LiveCode from '../../components/LiveCode';
+import CodeBlock from '../../components/Code';
+import Highlight from '../../components/Highlight';
+import Paragraph from '../../components/Paragraph';
+import Table from '../../components/Table';
 import Link from 'next/link';
-import Quoted from '../../../components/Quoted';
+import Quoted from '../../components/Quoted';
 
 export async function getStaticProps() {
 	const data = [
@@ -85,10 +85,7 @@ export default function tiform({ data }) {
 					>
 						Usage
 					</h1>
-					<Breadcrums
-						type={'linking'}
-						url={'/docs/forms/tiform#Usage'}
-					/>
+					<Breadcrums type={'linking'} url={'/docs/tiform#Usage'} />
 				</div>
 				<Paragraph>
 					This is a basic use-case of the TiForm component with which
@@ -175,10 +172,7 @@ export default myComponent;`}
 					>
 						Props
 					</h1>
-					<Breadcrums
-						type={'linking'}
-						url={'/docs/forms/tiform#Props'}
-					/>
+					<Breadcrums type={'linking'} url={'/docs/tiform#Props'} />
 				</div>
 				<Paragraph>
 					As that of a simple <Highlight title={'<form>'} /> tag,{' '}
@@ -199,7 +193,7 @@ export default myComponent;`}
 					</h2>
 					<Breadcrums
 						type={'linking'}
-						url={'/docs/forms/tiform#ClassName'}
+						url={'/docs/tiform#ClassName'}
 					/>
 				</div>
 
@@ -229,7 +223,7 @@ export default myComponent;`}
 					</h2>
 					<Breadcrums
 						type={'linking'}
-						url={'/docs/forms/tiform#onSubmit'}
+						url={'/docs/tiform#onSubmit'}
 					/>
 				</div>
 

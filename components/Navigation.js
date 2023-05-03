@@ -10,7 +10,7 @@ const Navigation = () => {
 	return (
 		<div className="w-full bg-[#121212] text-lg font-semibold">
 			<div className="p-4 flex max-w-7xl w-full mx-auto items-center space-x-5">
-				<div className="flex items-center md:hidden">
+				<div className="flex items-center lg:hidden">
 					<button onClick={() => setIsOpen((val) => !val)}>
 						<IconContext.Provider
 							value={{
@@ -23,7 +23,7 @@ const Navigation = () => {
 					</button>
 				</div>
 				<h1 className="font-montez">Ti</h1>
-				<div className=" hidden md:flex md:items-center space-x-5">
+				<div className=" hidden lg:flex lg:items-center space-x-5">
 					<div>
 						<Link href={'/docs/getting-started'}>Docs</Link>
 					</div>

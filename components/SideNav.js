@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { IconContext } from 'react-icons';
 
 import { BsSearch, BsBookmark } from 'react-icons/bs';
@@ -12,116 +12,11 @@ import { TbForms } from 'react-icons/tb';
 import { GiBookmarklet } from 'react-icons/gi';
 import Link from 'next/link';
 import SidenavLink from './SidenavLink';
+import { TiPathContext } from '../lib/Context';
 
-// export async function getStaticProps() {
-// 	const links = [
-// 		{
-// 			href: '/docs/forms/tiform',
-// 			name: 'TiForm',
-// 			disable: false,
-// 		},
-// 		{
-// 			href: '/docs/forms/titext',
-// 			name: 'TiText',
-// 			disable: false,
-// 		},
-// 		{
-// 			href: '/docs/forms/overview',
-// 			name: 'Overview',
-// 			disable: true,
-// 		},
-// 		{
-// 			href: '/docs/forms/form-control',
-// 			name: 'Form Control',
-// 			disable: true,
-// 		},
-// 		{
-// 			href: '/docs/forms/select',
-// 			name: 'Select',
-// 			disable: true,
-// 		},
-// 		{
-// 			href: '/docs/forms/checks-radios',
-// 			name: 'Checks & radio',
-// 			disable: true,
-// 		},
-// 		{
-// 			href: '/docs/forms/range',
-// 			name: 'Range',
-// 			disable: true,
-// 		},
-// 		{
-// 			href: '/docs/forms/input-group',
-// 			name: 'Input Groups',
-// 			disable: true,
-// 		},
-// 		{
-// 			href: '/docs/forms/validation',
-// 			name: 'Validation',
-// 			disable: true,
-// 		},
-// 	];
+export default function SideNav() {
+	const { path, setPath } = useContext(TiPathContext);
 
-// 	return {
-// 		props: {
-// 			links: links,
-// 		},
-// 	};
-// }
-
-const SideNav = ({ currPage }) => {
-	const links = [
-		{
-			href: '/docs/forms/tiform',
-			name: 'TiForm',
-			disable: false,
-		},
-		{
-			href: '/docs/forms/titext',
-			name: 'TiText',
-			disable: false,
-		},
-		{
-			href: '/docs/forms/timail',
-			name: 'TiMail',
-			disable: false,
-		},
-		// {
-		// 	href: '/docs/forms/overview',
-		// 	name: 'Overview',
-		// 	disable: true,
-		// },
-		// {
-		// 	href: '/docs/forms/form-control',
-		// 	name: 'Form Control',
-		// 	disable: true,
-		// },
-		// {
-		// 	href: '/docs/forms/select',
-		// 	name: 'Select',
-		// 	disable: true,
-		// },
-		// {
-		// 	href: '/docs/forms/checks-radios',
-		// 	name: 'Checks & radio',
-		// 	disable: true,
-		// },
-		// {
-		// 	href: '/docs/forms/range',
-		// 	name: 'Range',
-		// 	disable: true,
-		// },
-		// {
-		// 	href: '/docs/forms/input-group',
-		// 	name: 'Input Groups',
-		// 	disable: true,
-		// },
-		// {
-		// 	href: '/docs/forms/validation',
-		// 	name: 'Validation',
-		// 	disable: true,
-		// },
-	];
 	return (
 		<div className="max-w-[200px] mt-6 w-full h-fit sticky top-2 hidden lg:block box-border p-px pr-2 bg-[#121212]">
 			<div className="mb-2">
@@ -189,18 +84,9 @@ const SideNav = ({ currPage }) => {
 					</IconContext.Provider>
 					<h1 className=" text-lg font-semibold capitalize">Forms</h1>
 				</div>
-				<ul className="h-full w-full flex flex-col justify-evenly space-y-1">
-					{links.map((el, elXid) => {
-						return (
-							<SidenavLink
-								key={elXid}
-								currPage={currPage}
-								link={el.href}
-								name={el.name}
-							/>
-						);
-					})}
-					{/* <Link
+
+				<SidenavLink path={path} />
+				{/* <Link
 						className={`rounded-md ml-6 px-3 py-1 w-fit ${
 							currPage === '/docs/forms/tiform'
 								? 'bg-zinc-700/40'
@@ -328,8 +214,7 @@ const SideNav = ({ currPage }) => {
 							</span>
 						</div>
 					</Link> */}
-					<span className="flex-grow"></span>
-				</ul>
+				{/* <span className="flex-grow"></span> */}
 			</div>
 			{/* <div className="mb-2">
 				<div className="p-1 w-full flex items-center space-x-2 text-cyan-200">
@@ -378,6 +263,4 @@ const SideNav = ({ currPage }) => {
 			</div> */}
 		</div>
 	);
-};
-
-export default SideNav;
+}

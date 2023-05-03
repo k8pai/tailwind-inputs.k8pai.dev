@@ -1,23 +1,22 @@
 import React, { useState } from 'react';
-import InThisPage from '../../../components/InThisPage';
-import Breadcrums from '../../../components/Breadcrums';
-import LiveCode from '../../../components/LiveCode';
-import CodeBlock from '../../../components/Code';
-import Highlight from '../../../components/Highlight';
+import InThisPage from '../../components/InThisPage';
+import Breadcrums from '../../components/Breadcrums';
+import LiveCode from '../../components/LiveCode';
+import CodeBlock from '../../components/Code';
+import Highlight from '../../components/Highlight';
+import Quoted from '../../components/Quoted';
 import {
 	TiForm,
 	TiText,
 	TiPassword,
 	TiMail,
 	TiButton,
+	TiSelect,
 } from '@k8pai/tailwind-inputs';
+import Paragraph from '../../components/Paragraph';
 
 export default function titext() {
-	const [state, setState] = useState({
-		username: '',
-		password: '',
-		mail: '',
-	});
+	const [validateType, setValidateType] = useState('username');
 
 	const handleSubmit = (values) => {
 		console.log(values);
@@ -27,11 +26,16 @@ export default function titext() {
 			<div>
 				<div className="flex items-center justify-between mb-4">
 					<h1 className="text-4xl font-extrabold font-mono">
-						Text and Form Fields.
+						TiText
 					</h1>
 				</div>
 
-				<p className="font-semibold mb-4 text-lg tracking-wider"></p>
+				<p className="font-semibold mb-4 text-lg tracking-wider">
+					TiText are Text field components that comes with a couple of
+					validation features. Updates for fields, like{' '}
+					<Quoted>URL</Quoted> , <Quoted>Telephone</Quoted> and all
+					are on the way.
+				</p>
 			</div>
 
 			<div className="block xl:hidden">
@@ -46,10 +50,7 @@ export default function titext() {
 					>
 						Example
 					</h1>
-					<Breadcrums
-						type={'linking'}
-						url={'/docs/forms/titext#Example'}
-					/>
+					<Breadcrums type={'linking'} url={'/docs/titext#Example'} />
 				</div>
 
 				<p className="font-semibold mb-4 text-lg tracking-wider">
@@ -117,10 +118,7 @@ export default myComponent;`}
 						Sizing
 					</h1>
 
-					<Breadcrums
-						type={'linking'}
-						url={'/docs/forms/titext#Sizing'}
-					/>
+					<Breadcrums type={'linking'} url={'/docs/titext#Sizing'} />
 				</div>
 
 				<p className="font-semibold mb-4 text-lg tracking-wider">
@@ -199,7 +197,7 @@ export default myComponent;`}
 
 					<Breadcrums
 						type={'linking'}
-						url={'/docs/forms/titext#Disabled'}
+						url={'/docs/titext#Disabled'}
 					/>
 				</div>
 
@@ -251,7 +249,7 @@ export default myComponent;`}
 
 					<Breadcrums
 						type={'linking'}
-						url={'/docs/forms/titext#Readonly'}
+						url={'/docs/titext#Readonly'}
 					/>
 				</div>
 
@@ -303,7 +301,7 @@ export default myComponent;`}
 
 					<Breadcrums
 						type={'linking'}
-						url={'/docs/forms/titext#ReadonlyText'}
+						url={'/docs/titext#ReadonlyText'}
 					/>
 				</div>
 
@@ -346,7 +344,7 @@ export default myComponent;`}
 				/>
 			</div>
 
-			{/* <div>
+			<div>
 				<div className="flex items-baseline mb-4">
 					<h1
 						id={'customAndValid'}
@@ -356,7 +354,7 @@ export default myComponent;`}
 					</h1>
 					<Breadcrums
 						type={'linking'}
-						url={'/docs/forms/titext#customAndValid'}
+						url={'/docs/titext#customAndValid'}
 					/>
 				</div>
 
@@ -369,7 +367,7 @@ export default myComponent;`}
 					</h2>
 					<Breadcrums
 						type={'linking'}
-						url={'/docs/forms/titext#customization'}
+						url={'/docs/titext#customization'}
 					/>
 				</div>
 
@@ -440,7 +438,7 @@ export default myComponent;`}
 					</h2>
 					<Breadcrums
 						type={'linking'}
-						url={'/docs/forms/titext#validations'}
+						url={'/docs/titext#validations'}
 					/>
 				</div>
 				<div className="font-semibold mb-4 text-lg tracking-wider flex items-start">
@@ -463,46 +461,45 @@ export default myComponent;`}
 						some of the basic validations that you probably will
 						need for the form fields are{' '}
 						<Highlight title={`'email'`} />,{' '}
-						<Highlight title={`'username'`} />, and{' '}
-						<Highlight title={`'password'`} />.
+						<Highlight title={`'number'`} />,
+						<Highlight title={`'username'`} />,
+						<Highlight title={`'password'`} />,
+						<Highlight title={`'discordId'`} />,
+						<Highlight title={`'noSpace'`} />,
+						<Highlight title={`'textarea'`} />.
 					</p>
 				</div>
 
+				<TiSelect
+					value={'username'}
+					onChange={(values) => setValidateType(values)}
+					options={[
+						'username',
+						'number',
+						'password',
+						'email',
+						'noSpace',
+						'discordId',
+						'textarea',
+					]}
+				/>
+
+				<Paragraph>
+					Now let&apos;s try some of the validation tyes mentioned
+					above. Select a value of your desire and see a demo of the
+					same.
+				</Paragraph>
 				<LiveCode>
 					<TiForm
 						className="w-full bg-transparent space-y-1 text-white"
 						onSubmit={handleSubmit}
 					>
 						<TiText
-							label={'username'}
-							name={'validateName'}
-							validate={'username'}
-							placeholder={'username'}
-							error={'Check your username again.'}
-							style={{
-								label: 'text-white font-semibold tracking-wide ml-1',
-							}}
-							className={'space-y-2'}
-						/>
-						<TiPassword
-							name={'validatePassword'}
-							label={'Password'}
-							validate={'password'}
-							placeholder={'Password'}
-							error={
-								'Should contain an uppercase, a lowercase, a special character, a number and min 8 characters.'
-							}
-							style={{
-								label: 'text-white font-semibold tracking-wide ml-1',
-							}}
-							className={'space-y-2'}
-						/>
-						<TiMail
-							name={'validatEmail'}
-							label={'E Mail'}
-							validate={'email'}
-							placeholder={'Mail'}
-							error={'This is not a valid email.'}
+							label={`validate ${validateType}`}
+							name={'validate'}
+							validate={validateType}
+							placeholder={validateType}
+							error={`Satisfy the validation condition.`}
 							style={{
 								label: 'text-white font-semibold tracking-wide ml-1',
 							}}
@@ -519,55 +516,19 @@ export default myComponent;`}
 				</LiveCode>
 				<CodeBlock
 					lang={'javascript'}
-					code={`<TiForm
-	className="w-full bg-transparent space-y-1 text-white"
-	onSubmit={handleSubmit}
->
-	<TiText
-		label={'username'}
-		name={'validateName'}
-		validate={'username'}
-		placeholder={'username'}
-		error={'Check your username again.'}
-		style={{
-			label: 'text-white font-semibold tracking-wide ml-1',
-		}}
-		className={'space-y-2'}
-	/>
-	<TiPassword
-		name={'validatePassword'}
-		label={'Password'}
-		validate={'password'}
-		placeholder={'Password'}
-		error={
-			'Should contain an uppercase, a lowercase, a special character, a number and min 8 characters.'
-		}
-		style={{
-			label: 'text-white font-semibold tracking-wide ml-1',
-		}}
-		className={'space-y-2'}
-	/>
-	<TiMail
-		name={'validatEmail'}
-		label={'E Mail'}
-		validate={'email'}
-		placeholder={'Mail'}
-		error={'This is not a valid email.'}
-		style={{
-			label: 'text-white font-semibold tracking-wide ml-1',
-		}}
-		className={'space-y-2'}
-	/>
-	<TiButton
-		type={'submit'}
-		title={'Submit'}
-		className={
-			'px-3 py-2 mt-2 rounded-lg text-white bg-green-500/90 '
-		}
-	/>
-</TiForm>`}
+					code={`<TiText
+	label={'validate ${validateType}'}
+	name={'validate'}
+	validate={${validateType}}
+	placeholder={${validateType}}
+	error={'Satisfy the validation condition.''}
+	style={{
+		label: 'text-white font-semibold tracking-wide ml-1',
+	}}
+	className={'space-y-2'}
+/>`}
 				/>
-			</div> */}
+			</div>
 		</div>
 	);
 }

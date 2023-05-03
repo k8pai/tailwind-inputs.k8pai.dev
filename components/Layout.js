@@ -5,10 +5,19 @@ import Navigation from './Navigation';
 import Footer from './Footer';
 import InThisPage from './InThisPage';
 import { useRouter } from 'next/router';
+import { TiPathContext } from '../lib/Context';
 
 const Layout = ({ children }) => {
 	const router = useRouter();
 	const [currPage, setCurrPage] = useState('');
+
+	// useEffect(() => {
+	// 	console.log('CurrPage = ', currPage);
+
+	// 	// return () => {
+	// 	// 	second;
+	// 	// };
+	// }, [currPage]);
 
 	useEffect(() => {
 		const path = router.asPath.includes('#')
@@ -30,17 +39,24 @@ const Layout = ({ children }) => {
 				/>
 			</Head>
 			<div className="w-full mx-auto flex flex-col min-h-screen h-full">
-				<Navigation />
-				<div className="relative max-w-7xl mx-auto w-full h-full p-px flex flex-grow">
-					<SideNav currPage={currPage} />
-					<div className="max-w-[100%] w-full mt-6 p-3 box-border scroll-smooth">
-						{children}
+				<TiPathContext.Provider
+					value={{
+						path: currPage,
+						setPath: setCurrPage,
+					}}
+				>
+					<Navigation />
+					<div className="relative max-w-7xl mx-auto w-full h-full p-px flex flex-grow">
+						<SideNav />
+						<div className="max-w-[100%] w-full mt-6 p-3 box-border scroll-smooth">
+							{children}
+						</div>
+						<div className="hidden max-w-[200px] w-full xl:block">
+							<InThisPage />
+						</div>
 					</div>
-					<div className="hidden max-w-[200px] w-full xl:block">
-						<InThisPage />
-					</div>
-				</div>
-				<Footer />
+					<Footer />
+				</TiPathContext.Provider>
 			</div>
 		</div>
 	);
