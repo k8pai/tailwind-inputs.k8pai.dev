@@ -30,6 +30,11 @@ export default function SidenavLink({ path }) {
 			name: 'TiMail',
 			disable: false,
 		},
+		{
+			href: '/docs/tiselect',
+			name: 'TiSelect',
+			disable: false,
+		},
 		// {
 		// 	href: '/docs/forms/overview',
 		// 	name: 'Overview',

@@ -14,69 +14,7 @@ import Link from 'next/link';
 import SidenavLink from './SidenavLink';
 import { TiPathContext } from '../lib/Context';
 
-export async function getStaticProps() {
-	const links = [
-		{
-			href: '/docs/tiform',
-			name: 'TiForm',
-			disable: false,
-		},
-		{
-			href: '/docs/titext',
-			name: 'TiText',
-			disable: false,
-		},
-		{
-			href: '/docs/timail',
-			name: 'TiMail',
-			disable: false,
-		},
-		// {
-		// 	href: '/docs/forms/overview',
-		// 	name: 'Overview',
-		// 	disable: true,
-		// },
-		// {
-		// 	href: '/docs/forms/form-control',
-		// 	name: 'Form Control',
-		// 	disable: true,
-		// },
-		// {
-		// 	href: '/docs/forms/select',
-		// 	name: 'Select',
-		// 	disable: true,
-		// },
-		// {
-		// 	href: '/docs/forms/checks-radios',
-		// 	name: 'Checks & radio',
-		// 	disable: true,
-		// },
-		// {
-		// 	href: '/docs/forms/range',
-		// 	name: 'Range',
-		// 	disable: true,
-		// },
-		// {
-		// 	href: '/docs/forms/input-group',
-		// 	name: 'Input Groups',
-		// 	disable: true,
-		// },
-		// {
-		// 	href: '/docs/forms/validation',
-		// 	name: 'Validation',
-		// 	disable: true,
-		// },
-	];
-	console.log(links);
-
-	return {
-		props: {
-			links,
-		},
-	};
-}
-
-export default function SideNav({ links }) {
+export default function SideNav() {
 	const { path, setPath } = useContext(TiPathContext);
 
 	return (
