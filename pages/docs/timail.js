@@ -8,9 +8,6 @@ import InThisPage from '../../components/InThisPage';
 import Breadcrums from '../../components/Breadcrums';
 import {
 	TiForm,
-	TiText,
-	TiButton,
-	TiSelect,
 	TiMail,
 } from '@k8pai/tailwind-inputs';
 import Note from '../../components/Note';
