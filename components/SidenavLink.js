@@ -1,17 +1,5 @@
 import Link from 'next/link';
-import React, { useContext } from 'react';
-import { TiPathContext } from '../lib/Context';
-
-// export async function getStaticProps() {
-
-// 	console.log(links);
-
-// 	return {
-// 		props: {
-// 			links,
-// 		},
-// 	};
-// }
+import React from 'react';
 
 export default function SidenavLink({ path }) {
 	const links = [
@@ -35,44 +23,7 @@ export default function SidenavLink({ path }) {
 			name: 'TiSelect',
 			disable: false,
 		},
-		// {
-		// 	href: '/docs/forms/overview',
-		// 	name: 'Overview',
-		// 	disable: true,
-		// },
-		// {
-		// 	href: '/docs/forms/form-control',
-		// 	name: 'Form Control',
-		// 	disable: true,
-		// },
-		// {
-		// 	href: '/docs/forms/select',
-		// 	name: 'Select',
-		// 	disable: true,
-		// },
-		// {
-		// 	href: '/docs/forms/checks-radios',
-		// 	name: 'Checks & radio',
-		// 	disable: true,
-		// },
-		// {
-		// 	href: '/docs/forms/range',
-		// 	name: 'Range',
-		// 	disable: true,
-		// },
-		// {
-		// 	href: '/docs/forms/input-group',
-		// 	name: 'Input Groups',
-		// 	disable: true,
-		// },
-		// {
-		// 	href: '/docs/forms/validation',
-		// 	name: 'Validation',
-		// 	disable: true,
-		// },
 	];
-
-	// const { path } = useContext(TiPathContext);path
 	return (
 		<ul className="h-full w-full flex flex-col justify-evenly space-y-1">
 			{links.map((el, elXid) => {

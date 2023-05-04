@@ -11,14 +11,6 @@ const Layout = ({ children }) => {
 	const router = useRouter();
 	const [currPage, setCurrPage] = useState('');
 
-	// useEffect(() => {
-	// 	console.log('CurrPage = ', currPage);
-
-	// 	// return () => {
-	// 	// 	second;
-	// 	// };
-	// }, [currPage]);
-
 	useEffect(() => {
 		const path = router.asPath.includes('#')
 			? router.asPath.split('#').shift()
