@@ -68,7 +68,7 @@ export async function getStaticProps() {
 	};
 }
 
-export default function timail({ tiselectProps: data, optionsKeyValue }) {
+export default function tiselect({ tiselectProps: data, optionsKeyValue }) {
 	const handleSubmit = (values) => {
 		console.log(values);
 	};
