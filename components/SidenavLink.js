@@ -19,8 +19,18 @@ export default function SidenavLink({ path }) {
 			disable: false,
 		},
 		{
+			href: '/docs/tipassword',
+			name: 'TiPassword',
+			disable: false,
+		},
+		{
 			href: '/docs/tiselect',
 			name: 'TiSelect',
+			disable: false,
+		},
+		{
+			href: '/docs/timultiselect',
+			name: 'TiMultiSelect',
 			disable: false,
 		},
 	];
