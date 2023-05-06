@@ -6,7 +6,7 @@ import Paragraph from '../../components/Paragraph';
 import Highlight from '../../components/Highlight';
 import InThisPage from '../../components/InThisPage';
 import Breadcrums from '../../components/Breadcrums';
-import { TiForm, TiMail, TiSearch, TiSelect } from '@k8pai/tailwind-inputs';
+import { TiForm, TiMultiSelect } from '@k8pai/tailwind-inputs';
 import Note from '../../components/Note';
 import Table from '../../components/Table';
 import Link from 'next/link';
@@ -29,21 +29,19 @@ export async function getStaticProps() {
 	const tiselectProps = [
 		{
 			props: 'name',
-			type: 'string',
+			type: 'String',
 			definition:
 				'Mandatory, a key of the form object that is returned at submission.',
 		},
 		{
-			props: 'value',
-			type: 'string',
-			definition: 'Default value of the select Component',
+			props: 'label',
+			type: 'String',
+			definition: 'Label for the multiselect field.',
 		},
 		{
-			props: 'indicator',
-			type: 'boolean',
-			default: false,
-			definition:
-				'An optional props, when set true indicates which value is selected.',
+			props: 'value',
+			type: 'String',
+			definition: 'Default value of the select Component',
 		},
 		{
 			props: 'options',
@@ -57,6 +55,26 @@ export async function getStaticProps() {
 			definition: 'A Function that gets the value of the ',
 		},
 		{
+			props: 'mandatory',
+			type: 'Boolean',
+			default: null,
+			definition:
+				'When set to true, A mandatory field label is Specified.',
+		},
+		{
+			props: 'indicator',
+			type: 'boolean',
+			default: false,
+			definition:
+				'An optional props, when set true indicates which value is selected.',
+		},
+		{
+			props: 'placeholder',
+			type: 'string',
+			default: '',
+			definition: "Placeholder of the Field when it's empty.",
+		},
+		{
 			props: 'style',
 			type: 'Object',
 			definition:
@@ -68,7 +86,10 @@ export async function getStaticProps() {
 	};
 }
 
-export default function tiselect({ tiselectProps: data, optionsKeyValue }) {
+export default function timultiselect({
+	tiselectProps: data,
+	optionsKeyValue,
+}) {
 	const handleSubmit = (values) => {
 		console.log(values);
 	};
@@ -77,19 +98,27 @@ export default function tiselect({ tiselectProps: data, optionsKeyValue }) {
 			<div>
 				<div className="flex items-center justify-between mb-4">
 					<h1 className="text-4xl font-extrabold font-mono">
-						TiSelect
+						TiMultiSelect
 					</h1>
 				</div>
 
 				<Paragraph>
-					A select type input which can select a single element from a
-					couple of options. You can choose to go with the basic one
-					liner, or maybe have more control with our{' '}
-					<Link href={'/components/tiselect'}>
-						<Quoted>tiselect</Quoted>
-					</Link>{' '}
-					component.
+					A select type input which can select multiple elements from
+					a couple of options. You can use our basic{' '}
+					<Quoted>TiMultiSelect</Quoted> with options for
+					customizations and nearly no worries about state management,
+					or just go with the fully customizable, state managable
+					component version that comes with compositions and more
+					features.
 				</Paragraph>
+
+				<Note>
+					Components are not a part of the TiMultiSelect fields.
+					versions and updates may vary. Try to use the most latest
+					version to have more rich features. Know more about
+					components in{' '}
+					<Link href={'/components/timultiselect'}>here</Link>.
+				</Note>
 			</div>
 
 			<div className="block xl:hidden">
@@ -106,13 +135,13 @@ export default function tiselect({ tiselectProps: data, optionsKeyValue }) {
 					</h1>
 					<Breadcrums
 						type={'linking'}
-						url={'/docs/tiselect#Example'}
+						url={'/docs/timultiselect#Example'}
 					/>
 				</div>
 
 				<Paragraph>
-					Form inputs are input components, configured with tailwind,
-					with a bunch of validations.
+					A Multiselect field that can be used to give user control of
+					a selection field with a checkbox type feature.
 				</Paragraph>
 
 				<LiveCode>
@@ -120,14 +149,14 @@ export default function tiselect({ tiselectProps: data, optionsKeyValue }) {
 						className="w-full bg-transparent"
 						onSubmit={handleSubmit}
 					>
-						<TiSelect
-							name={'search'}
+						<TiMultiSelect
+							name={'multiselect'}
 							options={[
-								'ronaldo',
-								'messi',
-								'neymar',
-								'mbappe',
-								'haaland',
+								{ value: 'ronaldo' },
+								{ value: 'messi' },
+								{ value: 'neymar' },
+								{ value: 'mbappe' },
+								{ value: 'haaland' },
 							]}
 							className={'space-y-2'}
 						/>
@@ -135,7 +164,7 @@ export default function tiselect({ tiselectProps: data, optionsKeyValue }) {
 				</LiveCode>
 				<CodeBlock
 					lang={'javascript'}
-					code={`import { TiForm, TiMail } from '@k8pai/tailwind-inputs';
+					code={`import { TiForm, TiMultiSelect } from '@k8pai/tailwind-inputs';
 
 const myComponent = () => {
 	const handleSubmit = (values) => {
@@ -147,14 +176,14 @@ const myComponent = () => {
 			className="w-full bg-transparent"
 			onSubmit={handleSubmit}
 		>
-			<TiSelect
-				name={'search'}
+			<TiMultiSelect
+				name={'multiselect'}
 				options={[
-					'ronaldo',
-					'messi',
-					'neymar',
-					'mbappe',
-					'haaland',
+					{ value: 'ronaldo' },
+					{ value: 'messi' },
+					{ value: 'neymar' },
+					{ value: 'mbappe' },
+					{ value: 'haaland' },
 				]}
 				className={'space-y-2'}
 			/>
@@ -177,13 +206,13 @@ export default myComponent;`}
 
 					<Breadcrums
 						type={'linking'}
-						url={'/docs/tiselect#Sizing'}
+						url={'/docs/timultiselect#Sizing'}
 					/>
 				</div>
 
 				<Paragraph>
-					As similar to the TiText Component, TiSelect supports
-					customizing sizes from the tailwind-utility-classes.
+					Custom sizes and user defined widths can be provided for
+					this component with the help of tailwindcss utility classes.
 				</Paragraph>
 
 				<LiveCode>
@@ -191,42 +220,42 @@ export default myComponent;`}
 						className="w-full bg-transparent space-y-6"
 						onSubmit={handleSubmit}
 					>
-						<TiSelect
+						<TiMultiSelect
 							name={'large'}
 							options={[
-								'ronaldo',
-								'messi',
-								'neymar',
-								'mbappe',
-								'haaland',
+								{ value: 'ronaldo' },
+								{ value: 'messi' },
+								{ value: 'neymar' },
+								{ value: 'mbappe' },
+								{ value: 'haaland' },
 							]}
 							style={{
 								size: 'max-w-full',
 							}}
 							className={'space-y-2'}
 						/>
-						<TiSelect
+						<TiMultiSelect
 							name={'medium'}
 							options={[
-								'ronaldo',
-								'messi',
-								'neymar',
-								'mbappe',
-								'haaland',
+								{ value: 'ronaldo' },
+								{ value: 'messi' },
+								{ value: 'neymar' },
+								{ value: 'mbappe' },
+								{ value: 'haaland' },
 							]}
 							style={{
 								size: 'max-w-lg',
 							}}
 							className={'space-y-2'}
 						/>
-						<TiSelect
+						<TiMultiSelect
 							name={'small'}
 							options={[
-								'ronaldo',
-								'messi',
-								'neymar',
-								'mbappe',
-								'haaland',
+								{ value: 'ronaldo' },
+								{ value: 'messi' },
+								{ value: 'neymar' },
+								{ value: 'mbappe' },
+								{ value: 'haaland' },
 							]}
 							style={{
 								size: 'max-w-sm',
@@ -237,42 +266,42 @@ export default myComponent;`}
 				</LiveCode>
 				<CodeBlock
 					lang={'javascript'}
-					code={`<TiSelect
+					code={`<TiMultiSelect
 	name={'large'}
 	options={[
-		'ronaldo',
-		'messi',
-		'neymar',
-		'mbappe',
-		'haaland',
+		{ value: 'ronaldo' },
+		{ value: 'messi' },
+		{ value: 'neymar' },
+		{ value: 'mbappe' },
+		{ value: 'haaland' },
 	]}
 	style={{
 		size: 'max-w-full',
 	}}
 	className={'space-y-2'}
 />
-<TiSelect
+<TiMultiSelect
 	name={'medium'}
 	options={[
-		'ronaldo',
-		'messi',
-		'neymar',
-		'mbappe',
-		'haaland',
+		{ value: 'ronaldo' },
+		{ value: 'messi' },
+		{ value: 'neymar' },
+		{ value: 'mbappe' },
+		{ value: 'haaland' },
 	]}
 	style={{
 		size: 'max-w-lg',
 	}}
 	className={'space-y-2'}
 />
-<TiSelect
+<TiMultiSelect
 	name={'small'}
 	options={[
-		'ronaldo',
-		'messi',
-		'neymar',
-		'mbappe',
-		'haaland',
+		{ value: 'ronaldo' },
+		{ value: 'messi' },
+		{ value: 'neymar' },
+		{ value: 'mbappe' },
+		{ value: 'haaland' },
 	]}
 	style={{
 		size: 'max-w-sm',
@@ -293,26 +322,29 @@ export default myComponent;`}
 
 					<Breadcrums
 						type={'linking'}
-						url={'/docs/tiselect#Disabled'}
+						url={'/docs/timultiselect#Disabled'}
 					/>
 				</div>
 
 				<Paragraph>
-					The component supports disabled options. You&apos;re free to
-					pass an array of string, numbers or objects. But when you
-					are to have a disabled option, the only way to do it is
-					using an array of objects.
+					Like TiSelect components, TiMultiSelect also supports
+					disabled options. You are free to pass an array of string,
+					numbers or objects. But when you are to have a disabled
+					option, the only way to do it is using an array of objects
+					with a <Quoted>disable</Quoted> property set to true.
 				</Paragraph>
 
-				<Paragraph>
-					The objects should mandatorily have a key named{' '}
-					<Quoted>value</Quoted> which represents the string that is
-					the value of the element. An optional key{' '}
-					<Quoted>name</Quoted> which will be displayed at the option.
-					when provided none, the name will be same as the value. And
-					the <Quoted>disable</Quoted> property that determines
-					whether an option should be disabled or enabled.
-				</Paragraph>
+				<Note>
+					If Array contains type of Objects, then these objects should
+					mandatorily have a key named <Quoted>value</Quoted> which
+					represents the string that is the value of the element. An
+					optional key, <Quoted>name</Quoted> , which will be
+					displayed as the option. When nothing is passed in for name,
+					name will be the same as that of value. And then, the last,{' '}
+					<Quoted>disable</Quoted> property that determines whether an
+					option should be disabled or enabled, with a default value
+					of false.
+				</Note>
 
 				<CodeBlock
 					lang={'javascript'}
@@ -330,7 +362,7 @@ export default myComponent;`}
 						className="w-full bg-transparent"
 						onSubmit={handleSubmit}
 					>
-						<TiSelect
+						<TiMultiSelect
 							name={'small'}
 							options={[
 								{ value: 'ronaldo', disable: false },
@@ -345,13 +377,14 @@ export default myComponent;`}
 				</LiveCode>
 				<CodeBlock
 					lang={'javascript'}
-					code={`<TiSelect
+					code={`<TiMultiSelect
 	name={'small'}
 	options={arr}
 	className={'space-y-2'}
 />`}
 				/>
 			</div>
+
 			<div>
 				<div className="flex items-baseline mb-4">
 					<h1
@@ -360,7 +393,10 @@ export default myComponent;`}
 					>
 						Props
 					</h1>
-					<Breadcrums type={'linking'} url={'/docs/tiselect#Props'} />
+					<Breadcrums
+						type={'linking'}
+						url={'/docs/timultiselect#Props'}
+					/>
 				</div>
 				<Paragraph>
 					There are a list of props that will quiet be useful to
@@ -381,7 +417,7 @@ export default myComponent;`}
 						</h2>
 						<Breadcrums
 							type={'linking'}
-							url={'/docs/tiselect#Name'}
+							url={'/docs/timultiselect#Name'}
 						/>
 					</div>
 
@@ -401,6 +437,35 @@ export default myComponent;`}
 					/>
 				</div>
 
+				{/* label props  */}
+				<div>
+					<div className="flex items-baseline mb-4">
+						<h2
+							id={'Label'}
+							className="text-2xl font-bold font-mono pt-8"
+						>
+							Label
+						</h2>
+						<Breadcrums
+							type={'linking'}
+							url={'/docs/timultiselect#Label'}
+						/>
+					</div>
+
+					<Paragraph>
+						The label of the TiMultiSelect field, that indicates the
+						purpose of the field, or whatever.
+					</Paragraph>
+
+					<CodeBlock
+						lang={'javascript'}
+						code={`<TiMultiSelect
+value={'ronaldo'}
+...restProps 
+/>`}
+					/>
+				</div>
+
 				{/* value props  */}
 				<div>
 					<div className="flex items-baseline mb-4">
@@ -412,13 +477,13 @@ export default myComponent;`}
 						</h2>
 						<Breadcrums
 							type={'linking'}
-							url={'/docs/tiselect#Value'}
+							url={'/docs/timultiselect#Value'}
 						/>
 					</div>
 
 					<Paragraph>
-						<Quoted>value</Quoted> contains the default value of the
-						select field.
+						<Quoted>value</Quoted> contains the default values of
+						the multiselect field.
 					</Paragraph>
 
 					<Note>
@@ -433,39 +498,8 @@ export default myComponent;`}
 
 					<CodeBlock
 						lang={'javascript'}
-						code={`<TiSelect
+						code={`<TiMultiSelect
 	value={'ronaldo'}
-	...restProps 
-/>`}
-					/>
-				</div>
-
-				{/* Indicator props  */}
-				<div>
-					<div className="flex items-baseline mb-4">
-						<h2
-							id={'Indicator'}
-							className="text-2xl font-bold font-mono pt-8"
-						>
-							Indicator
-						</h2>
-						<Breadcrums
-							type={'linking'}
-							url={'/docs/tiselect#Indicator'}
-						/>
-					</div>
-
-					<Paragraph>
-						A boolean type props that decides if an indicator for
-						representing the selected value is needed or not. The
-						default value is true, and you can set the indicator of
-						with providing a false value to it.
-					</Paragraph>
-
-					<CodeBlock
-						lang={'javascript'}
-						code={`<TiSelect
-	indicator={false}
 	...restProps 
 />`}
 					/>
@@ -482,7 +516,7 @@ export default myComponent;`}
 						</h2>
 						<Breadcrums
 							type={'linking'}
-							url={'/docs/tiselect#Options'}
+							url={'/docs/timultiselect#Options'}
 						/>
 					</div>
 
@@ -517,7 +551,7 @@ export default myComponent;`}
 					/>
 					<CodeBlock
 						lang={'javascript'}
-						code={`<TiSelect
+						code={`<TiMultiSelect
 	options={arr}
 	...restProps 
 />`}
@@ -535,14 +569,14 @@ export default myComponent;`}
 						</h2>
 						<Breadcrums
 							type={'linking'}
-							url={'/docs/tiselect#onChange'}
+							url={'/docs/timultiselect#onChange'}
 						/>
 					</div>
 
 					<Paragraph>
 						A props that will accept a function which contains a
 						parameter. This parameter will contain the value of the
-						selected option when an option that is not currently
+						selected options when an option that is not currently
 						selected is selected.
 					</Paragraph>
 
@@ -563,6 +597,66 @@ export default myComponent;`}
 					/>
 				</div>
 
+				{/* mandatory props  */}
+				<div>
+					<div className="flex items-baseline mb-4">
+						<h2
+							id={'Mandatory'}
+							className="text-2xl font-bold font-mono pt-8"
+						>
+							Mandatory
+						</h2>
+						<Breadcrums
+							type={'linking'}
+							url={'/docs/timultiselect#Mandatory'}
+						/>
+					</div>
+
+					<Paragraph>
+						A boolean field that includes a * at the end of the
+						label, to represent a mandatory field.
+					</Paragraph>
+
+					<CodeBlock
+						lang={'javascript'}
+						code={`<TiMultiSelect
+	mandatory
+	...restProps 
+/>`}
+					/>
+				</div>
+
+				{/* Indicator props  */}
+				<div>
+					<div className="flex items-baseline mb-4">
+						<h2
+							id={'Indicator'}
+							className="text-2xl font-bold font-mono pt-8"
+						>
+							Indicator
+						</h2>
+						<Breadcrums
+							type={'linking'}
+							url={'/docs/timultiselect#Indicator'}
+						/>
+					</div>
+
+					<Paragraph>
+						A boolean type props that decides if an indicator for
+						representing the selected value is needed or not. The
+						default value is true, and you can set the indicator of
+						with providing a false value to it.
+					</Paragraph>
+
+					<CodeBlock
+						lang={'javascript'}
+						code={`<TiMultiSelect
+	indicator={false}
+	...restProps 
+/>`}
+					/>
+				</div>
+
 				{/* style props  */}
 				<div>
 					<div className="flex items-baseline mb-4">
@@ -574,7 +668,7 @@ export default myComponent;`}
 						</h2>
 						<Breadcrums
 							type={'linking'}
-							url={'/docs/tiselect#Style'}
+							url={'/docs/timultiselect#Style'}
 						/>
 					</div>
 
@@ -585,7 +679,7 @@ export default myComponent;`}
 
 					<CodeBlock
 						lang={'javascript'}
-						code={`<TiSelect
+						code={`<TiMultiSelect
 	style={{
 		mode: 'dark',
 	}}

@@ -65,16 +65,11 @@ const Navigation = () => {
 				</div>
 				<div></div>
 			</div>
-			{/* <div
-				className={`transition-all duration-700 w-full ${
-					isOpen ? 'block' : 'hidden'
-				}`}
-			> */}
+
 			<MobileNav
 				isOpen={isOpen}
 				onClick={() => setIsOpen((val) => !val)}
 			/>
-			{/* </div> */}
 		</div>
 	);
 };

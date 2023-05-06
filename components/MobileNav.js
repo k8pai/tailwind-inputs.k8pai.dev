@@ -17,9 +17,6 @@ const MobileNav = ({ isOpen, onClick }) => {
 	const router = useRouter();
 	const [currPage, setCurrPage] = useState('');
 	useEffect(() => {
-		// const page = router.asPath.split('/').pop();
-
-		// const pageUrl = page.includes('#') ? page.split('#').shift() : page;
 		setCurrPage(router.asPath);
 		return () => {};
 	}, [router.asPath]);
