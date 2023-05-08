@@ -8,8 +8,8 @@ import MobileNav from './MobileNav';
 const Navigation = () => {
 	const [isOpen, setIsOpen] = useState(false);
 	return (
-		<div className="w-full bg-[#121212] text-lg font-semibold">
-			<div className="p-4 flex max-w-7xl w-full mx-auto items-center space-x-5">
+		<div className="w-full border-b bg-[#111111] text-lg font-semibold">
+			<div className="p-6 flex max-w-7xl w-full mx-auto items-center space-x-5">
 				<div className="flex items-center lg:hidden">
 					<button onClick={() => setIsOpen((val) => !val)}>
 						<IconContext.Provider
@@ -23,17 +23,6 @@ const Navigation = () => {
 					</button>
 				</div>
 				<h1 className="font-montez">Ti</h1>
-				<div className=" hidden lg:flex lg:items-center space-x-5">
-					<div>
-						<Link href={'/docs/getting-started'}>Docs</Link>
-					</div>
-					<div>
-						<Link href={'/components'}>Components</Link>
-					</div>
-					<div>
-						<Link href={'/examples'}>Examples</Link>
-					</div>
-				</div>
 				<span className="flex-grow"></span>
 				<div>
 					<Link href={'https://github.com/k8pai/tailwind-inputs'}>

@@ -1,55 +1,40 @@
 import Link from 'next/link';
 import React from 'react';
+import { usePathname } from 'next/navigation';
+import { motion } from 'framer-motion';
 
-export default function SidenavLink({ path }) {
-	const links = [
-		{
-			href: '/docs/tiform',
-			name: 'TiForm',
-			disable: false,
-		},
-		{
-			href: '/docs/titext',
-			name: 'TiText',
-			disable: false,
-		},
-		{
-			href: '/docs/timail',
-			name: 'TiMail',
-			disable: false,
-		},
-		{
-			href: '/docs/tipassword',
-			name: 'TiPassword',
-			disable: false,
-		},
-		{
-			href: '/docs/tiselect',
-			name: 'TiSelect',
-			disable: false,
-		},
-		{
-			href: '/docs/timultiselect',
-			name: 'TiMultiSelect',
-			disable: false,
-		},
-	];
+export default function SidenavLink({ path, links }) {
+	const pathname = usePathname();
 	return (
-		<ul className="h-full w-full flex flex-col justify-evenly space-y-1">
+		<ul className="h-full w-full flex flex-col justify-evenly">
 			{links.map((el, elXid) => {
+				const isActive = el.href === pathname;
 				return (
 					<Link
 						key={elXid}
-						className={`rounded-md ml-6 px-3 py-1 w-fit ${
-							path === el.href ? 'bg-zinc-700/40' : ''
-						} hover:bg-zinc-700/40`}
+						className={`transition-all rounded-md ml-6 py-2 w-fit`}
 						href={el.href}
 					>
-						<div className=" flex items-center">
-							<span className=" text-sm font-semibold capitalize">
-								{el.name}
-							</span>
-						</div>
+						<span
+							className={`relative px-3 py-2 text-sm font-semibold capitalize rounded-md ${
+								!isActive ? 'hover:bg-zinc-700/40' : ''
+							}`}
+						>
+							{el.name}
+							{isActive ? (
+								<motion.div
+									className={
+										'absolute inset-0 bg-zinc-700/40 rounded-md z-[-1]'
+									}
+									layoutId="sidenavLinks"
+									transition={{
+										type: 'spring',
+										stiffness: 350,
+										damping: 30,
+									}}
+								/>
+							) : null}
+						</span>
 					</Link>
 				);
 			})}
