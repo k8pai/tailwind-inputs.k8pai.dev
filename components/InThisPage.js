@@ -1,11 +1,12 @@
 import Link from 'next/link';
+import { motion } from 'framer-motion';
 import { useRouter } from 'next/router';
-import React, { useState, useEffect } from 'react';
-import { IconContext } from 'react-icons';
-import { GiBookmarklet } from 'react-icons/gi';
+import { TiPathContext } from '../lib/Context';
+import React, { useState, useEffect, useContext } from 'react';
 
 const InThisPage = () => {
 	const router = useRouter();
+	const { currView } = useContext(TiPathContext);
 	const [headingLinks, setHeadingLinks] = useState([]);
 
 	useEffect(() => {
@@ -27,7 +28,7 @@ const InThisPage = () => {
 	}, [router.asPath]);
 
 	return (
-		<div className="sticky top-2 h-fit mt-0 lg:mt-6 pl-2">
+		<div className="sticky top-4 mt-3 h-fit pl-2">
 			<h1 className="p-1 w-full text-lg font-semibold capitalize text-cyan-200">
 				In This page
 			</h1>
@@ -38,12 +39,26 @@ const InThisPage = () => {
 						<Link
 							key={headingId}
 							href={`#${headingId}`}
-							className={`block hover:text-[#e3e3e3] transition-colors duration-200 ${
-								headingLevel === 2 ? 'pl-8' : 'pl-3'
+							className={`block transition-all my-1 ${
+								headingId === currView
+									? 'text-white font-semibold'
+									: 'hover:text-[#e3e3e3]'
 							}`}
 						>
-							{/* {headingLevel === 2 ? '|-> ' : null} */}
-							{text}
+							<span
+								className={`relative w-fit ${
+									headingLevel === 2 ? 'pl-8' : 'pl-4'
+								}`}
+							>
+								{text}
+								{headingId === currView ? (
+									<motion.div
+										className={
+											'absolute w-1 h-1 text-white bg-white left-1 inset-y-0 my-auto rounded-full '
+										}
+									/>
+								) : null}
+							</span>
 						</Link>
 					);
 				})}
