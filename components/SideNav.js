@@ -65,6 +65,12 @@ export default function SideNav() {
 			name: 'TiMultiSelect',
 			disable: false,
 		},
+		{
+			path: 'tidisclosure',
+			href: '/docs/tidisclosure',
+			name: 'TiDisclosure',
+			disable: false,
+		},
 	];
 
 	return (
