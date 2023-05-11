@@ -22,7 +22,10 @@ const Navigation = () => {
 						</IconContext.Provider>
 					</button>
 				</div>
-				<h1 className="font-montez">Ti</h1>
+				<h1 className="font-montez sm:hidden">Ti</h1>
+				<h1 className="font-montez text-2xl hidden sm:block">
+					Tailwind Inputs
+				</h1>
 				<span className="flex-grow"></span>
 				<div>
 					<Link href={'https://github.com/k8pai/tailwind-inputs'}>

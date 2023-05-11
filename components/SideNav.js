@@ -74,7 +74,7 @@ export default function SideNav() {
 	];
 
 	return (
-		<div className="max-w-[200px] w-full h-fit sticky top-4 mt-3 hidden lg:block box-border p-px pr-2 bg-[#121212]">
+		<div className="max-w-[200px] w-full h-fit sticky top-4 mt-6 py-3 hidden lg:block box-border p-px pr-2 bg-[#121212]">
 			<div className="mb-2">
 				<div className="p-1 w-full flex items-center space-x-2 text-cyan-200">
 					<IconContext.Provider
