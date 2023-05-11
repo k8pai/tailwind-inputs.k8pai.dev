@@ -10,6 +10,7 @@ import { TiPathContext } from '../lib/Context';
 const Layout = ({ children }) => {
 	const router = useRouter();
 	const [currPage, setCurrPage] = useState('');
+	const [currView, setCurrView] = useState([]);
 
 	useEffect(() => {
 		const path = router.asPath.includes('#')
@@ -21,7 +22,7 @@ const Layout = ({ children }) => {
 	}, [router.asPath]);
 
 	return (
-		<div className="w-full box-border min-h-screen h-full bg-[#121212] text-[#b3b3b3]">
+		<div className="w-full box-border min-h-screen h-full scroll-smooth bg-[#121212] text-[#b3b3b3]">
 			<Head>
 				<meta charSet="UTF-8" />
 				<meta httpEquiv="X-UA-Compatible" content="IE=edge" />
@@ -35,12 +36,14 @@ const Layout = ({ children }) => {
 					value={{
 						path: currPage,
 						setPath: setCurrPage,
+						currView: currView,
+						setCurrView: setCurrView,
 					}}
 				>
 					<Navigation />
 					<div className="relative max-w-7xl mx-auto w-full h-full p-px flex flex-grow">
 						<SideNav />
-						<div className="max-w-[100%] w-full mt-6 p-3 box-border scroll-smooth">
+						<div className="max-w-[100%] w-full mt-3 px-3 box-border scroll-smooth">
 							{children}
 						</div>
 						<div className="hidden max-w-[200px] w-full xl:block">
