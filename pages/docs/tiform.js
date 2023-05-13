@@ -206,7 +206,6 @@ export default myComponent;`}
 
 				<CodeBlock
 					lang={'javascript'}
-					copy
 					code={`<TiForm
 	className="w-full bg-transparent any-tailwind-utiltiy-class customize-yourself."
 >
@@ -293,9 +292,8 @@ export default myComponent;`}
 					<Highlight title={'validate'} /> property, when returns an
 					empty string, values are not valid enough.
 				</Paragraph>
-
-				<Paragraph>Happy coding!</Paragraph>
 			</div>
+			<Paragraph>Happy coding!</Paragraph>
 		</div>
 	);
 }

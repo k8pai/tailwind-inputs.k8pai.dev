@@ -6,10 +6,7 @@ import Paragraph from '../../components/Paragraph';
 import Highlight from '../../components/Highlight';
 import InThisPage from '../../components/InThisPage';
 import Breadcrums from '../../components/Breadcrums';
-import {
-	TiForm,
-	TiMail,
-} from '@k8pai/tailwind-inputs';
+import { TiForm, TiMail } from '@k8pai/tailwind-inputs';
 import Note from '../../components/Note';
 import Table from '../../components/Table';
 
@@ -156,6 +153,7 @@ export default function timail({ data }) {
 				</LiveCode>
 				<CodeBlock
 					lang={'javascript'}
+					copy
 					code={`import { TiForm, TiMail } from '@k8pai/tailwind-inputs';
 
 const myComponent = () => {
@@ -604,9 +602,8 @@ export default myComponent;`}
 />`}
 					/>
 				</div>
-
-				<Paragraph>Happy coding!</Paragraph>
 			</div>
+			<Paragraph>Happy coding!</Paragraph>
 		</div>
 	);
 }

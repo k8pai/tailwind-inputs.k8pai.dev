@@ -230,6 +230,7 @@ export default myComponent;`}
 								{ value: 'haaland' },
 							]}
 							style={{
+								mode: 'dark',
 								size: 'max-w-full',
 							}}
 							className={'space-y-2'}
@@ -244,6 +245,7 @@ export default myComponent;`}
 								{ value: 'haaland' },
 							]}
 							style={{
+								mode: 'dark',
 								size: 'max-w-lg',
 							}}
 							className={'space-y-2'}
@@ -258,6 +260,7 @@ export default myComponent;`}
 								{ value: 'haaland' },
 							]}
 							style={{
+								mode: 'dark',
 								size: 'max-w-sm',
 							}}
 							className={'space-y-2'}
@@ -276,6 +279,7 @@ export default myComponent;`}
 		{ value: 'haaland' },
 	]}
 	style={{
+		mode: 'dark',
 		size: 'max-w-full',
 	}}
 	className={'space-y-2'}
@@ -290,6 +294,7 @@ export default myComponent;`}
 		{ value: 'haaland' },
 	]}
 	style={{
+		mode: 'dark',
 		size: 'max-w-lg',
 	}}
 	className={'space-y-2'}
@@ -304,6 +309,7 @@ export default myComponent;`}
 		{ value: 'haaland' },
 	]}
 	style={{
+		mode: 'dark',
 		size: 'max-w-sm',
 	}}
 	className={'space-y-2'}
@@ -687,9 +693,98 @@ value={'ronaldo'}
 />`}
 					/>
 				</div>
-
-				<Paragraph>Happy coding!</Paragraph>
 			</div>
+
+			<div>
+				<div className="flex items-baseline mb-4">
+					<h1
+						id={'Additionals'}
+						className="text-3xl font-bold font-mono pt-8"
+					>
+						Additionals
+					</h1>
+					<Breadcrums
+						type={'linking'}
+						url={'/docs/timultiselect#Additionals'}
+					/>
+				</div>
+				<Paragraph>
+					Handle some edgecases and exceptions that may seem to be
+					missing in the docs.
+				</Paragraph>
+
+				{/* name props  */}
+				<div>
+					<div className="flex items-baseline mb-4">
+						<h2
+							id={'Scrollbar'}
+							className="text-2xl font-bold font-mono pt-8"
+						>
+							Scrollbar
+						</h2>
+						<Breadcrums
+							type={'linking'}
+							url={'/docs/timultiselect#Scrollbar'}
+						/>
+					</div>
+
+					<Paragraph>
+						Selecting a large number of options within a smaller
+						width multiselect component may lead to a scrollbar that
+						you may or maynot be annoyed with. Here's a quick tip to
+						make changes if you feel like having any.
+					</Paragraph>
+
+					<Paragraph>
+						Below you tailwindcss imports in your css file, you may
+						customize the scrollbar to your need.
+					</Paragraph>
+					<CodeBlock
+						copy
+						lang={'javascript'}
+						code={`@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* For Webkit-based browsers (Chrome, .Safari) */
+.scrollbar::-webkit-scrollbar {
+	/* customize your scrollbar */
+	/* or hide it with display: none; */
+}
+
+.scrollbar::-webkit-scrollbar-thumb {
+	/* customize your scrollbar thumb */
+}
+
+.scrollbar::-webkit-scrollbar-track {
+	/* customize your scrollbar track */
+}
+
+/* For Firefox */
+* {
+	/* for firefox do something like ... */
+	/* scrollbar-width: thin; */
+	/* scrollbar-color: #4a5568 #edf2f7; */
+}
+
+/* For Edge and IE */
+.scrollbar::-ms-scrollbar {
+	/* customize your scrollbar */
+	/* or hide it with display: none; */
+}
+
+.scrollbar::-ms-scrollbar-thumb {
+	/* customize your scrollbar thumb */
+}
+
+.scrollbar::-ms-scrollbar-track {
+	/* customize your scrollbar track */
+}`}
+					/>
+				</div>
+			</div>
+
+			<Paragraph>Happy coding!</Paragraph>
 		</div>
 	);
 }

@@ -123,7 +123,11 @@ export default function tidisclosure({ option, tidisclosureProps }) {
 						className="w-full bg-transparent"
 						onSubmit={handleSubmit}
 					>
-						<TiDisclosure name={'search'} options={option} />
+						<TiDisclosure
+							name={'search'}
+							options={option}
+							style={{ mode: 'dark' }}
+						/>
 					</TiForm>
 				</LiveCode>
 				<CodeBlock
@@ -165,6 +169,7 @@ const myComponent = () => {
 						content: 'this is the content',
 					},
 				]}
+				style={{ mode: 'dark' }}
 			/>
 		</TiForm>
 	)
@@ -203,6 +208,7 @@ export default myComponent;`}
 							name={'search'}
 							options={option}
 							style={{
+								mode: 'dark',
 								size: 'max-w-full',
 							}}
 						/>
@@ -210,6 +216,7 @@ export default myComponent;`}
 							name={'medium'}
 							options={option}
 							style={{
+								mode: 'dark',
 								size: 'max-w-lg',
 							}}
 						/>
@@ -217,6 +224,7 @@ export default myComponent;`}
 							name={'small'}
 							options={option}
 							style={{
+								mode: 'dark',
 								size: 'max-w-sm',
 							}}
 						/>
@@ -228,6 +236,7 @@ export default myComponent;`}
 	name={'search'}
 	options={option}
 	style={{
+		mode: 'dark',
 		size: 'max-w-lg',
 	}}
 />
@@ -235,6 +244,7 @@ export default myComponent;`}
 	name={'medium'}
 	options={option}
 	style={{
+		mode: 'dark',
 		size: 'max-w-lg',
 	}}
 />
@@ -242,6 +252,7 @@ export default myComponent;`}
 	name={'small'}
 	options={option}
 	style={{
+		mode: 'dark',
 		size: 'max-w-sm',
 	}}
 />`}
@@ -450,9 +461,8 @@ export default myComponent;`}
 />`}
 					/>
 				</div>
-
-				<Paragraph>Happy coding!</Paragraph>
 			</div>
+			<Paragraph>Happy coding!</Paragraph>
 		</div>
 	);
 }

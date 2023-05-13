@@ -146,6 +146,7 @@ export default function tipassword({ data }) {
 				</LiveCode>
 				<CodeBlock
 					lang={'javascript'}
+					copy
 					code={`import { TiForm, TiPassword } from '@k8pai/tailwind-inputs';
 
 const myComponent = () => {
@@ -555,9 +556,8 @@ export default myComponent;`}
 />`}
 					/>
 				</div>
-
-				<Paragraph>Happy coding!</Paragraph>
 			</div>
+			<Paragraph>Happy coding!</Paragraph>
 		</div>
 	);
 }

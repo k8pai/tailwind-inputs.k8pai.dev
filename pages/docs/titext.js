@@ -78,6 +78,7 @@ export default function titext() {
 				</LiveCode>
 				<CodeBlock
 					lang={'javascript'}
+					copy
 					code={`import { TiForm, TiText } from '@k8pai/tailwind-inputs';
 
 const myComponent = () => {
@@ -529,6 +530,8 @@ export default myComponent;`}
 />`}
 				/>
 			</div>
+
+			<Paragraph>Happy coding!</Paragraph>
 		</div>
 	);
 }
