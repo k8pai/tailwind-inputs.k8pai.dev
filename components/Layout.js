@@ -10,7 +10,6 @@ import { TiPathContext } from '../lib/Context';
 const Layout = ({ children }) => {
 	const router = useRouter();
 	const [currPage, setCurrPage] = useState('');
-	const [currView, setCurrView] = useState([]);
 
 	useEffect(() => {
 		const path = router.asPath.includes('#')
@@ -36,8 +35,6 @@ const Layout = ({ children }) => {
 					value={{
 						path: currPage,
 						setPath: setCurrPage,
-						currView: currView,
-						setCurrView: setCurrView,
 					}}
 				>
 					<Navigation />
@@ -46,9 +43,7 @@ const Layout = ({ children }) => {
 						<div className="max-w-[100%] w-full mt-3 px-3 box-border scroll-smooth">
 							{children}
 						</div>
-						<div className="hidden max-w-[200px] w-full xl:block">
-							<InThisPage />
-						</div>
+						<InThisPage />
 					</div>
 					<Footer />
 				</TiPathContext.Provider>

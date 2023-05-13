@@ -12,7 +12,7 @@ import {
 } from 'react-icons/hi2';
 import { MdKeyboardDoubleArrowRight } from 'react-icons/md';
 
-const Breadcrums = ({ type, url, ...rest }) => {
+export default function Breadcrums({ type, url, ...rest }) {
 	if (type === 'linking') {
 		const router = useRouter();
 		const link = router.asPath;
@@ -96,6 +96,4 @@ const Breadcrums = ({ type, url, ...rest }) => {
 			</span>
 		);
 	}
-};
-
-export default Breadcrums;
+}

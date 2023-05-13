@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import { FaGithub, FaTwitter, FaNpm } from 'react-icons/fa';
 
-const Footer = () => {
+export default function Footer() {
 	return (
 		<footer className="bg-[#121212] py-12">
 			<div className="container mx-auto flex flex-col md:flex-row justify-between">
@@ -47,26 +47,18 @@ const Footer = () => {
 						<ul className="list-none">
 							<li className="mb-2">
 								<Link
-									href="/get-started"
+									href="/"
 									className=" hover:text-[#e3e3e3] transition duration-200"
 								>
-									Get Started
+									Home
 								</Link>
 							</li>
 							<li className="mb-2">
 								<Link
-									href="/docs/forms/overview"
+									href="/introduction"
 									className=" hover:text-[#e3e3e3] transition duration-200"
 								>
-									Forms
-								</Link>
-							</li>
-							<li className="mb-2">
-								<Link
-									href="/components"
-									className=" hover:text-[#e3e3e3] transition duration-200"
-								>
-									Components
+									Introduction
 								</Link>
 							</li>
 							<li className="mb-2">
@@ -75,6 +67,14 @@ const Footer = () => {
 									className=" hover:text-[#e3e3e3] transition duration-200"
 								>
 									Examples
+								</Link>
+							</li>
+							<li className="mb-2">
+								<Link
+									href="/docs"
+									className=" hover:text-[#e3e3e3] transition duration-200"
+								>
+									Docs
 								</Link>
 							</li>
 						</ul>
@@ -120,6 +120,4 @@ const Footer = () => {
 			</div>
 		</footer>
 	);
-};
-
-export default Footer;
+}
