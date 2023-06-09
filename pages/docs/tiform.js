@@ -105,6 +105,7 @@ export default function tiform({ data }) {
 							placeholder={'Enter Your Username'}
 							mandatory
 							style={{
+								mode: 'dark',
 								label: 'text-white font-semibold tracking-wide ml-3',
 								size: 'max-w-full',
 							}}
