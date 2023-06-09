@@ -13,9 +13,9 @@ import {
 import { MdKeyboardDoubleArrowRight } from 'react-icons/md';
 
 export default function Breadcrums({ type, url, ...rest }) {
+	const router = useRouter();
+	const link = router.asPath;
 	if (type === 'linking') {
-		const router = useRouter();
-		const link = router.asPath;
 		return (
 			<Link
 				href={url}

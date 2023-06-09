@@ -48,8 +48,8 @@ const index = ({ overviewCards }) => {
 			</div>
 
 			<div className="grid grid-cols-2 gap-2">
-				{overviewCards.map((el) => (
-					<OverviewCard link={el.link} title={el.title} />
+				{overviewCards.map((el, elXid) => (
+					<OverviewCard key={elXid} link={el.link} title={el.title} />
 				))}
 			</div>
 			<div>

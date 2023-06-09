@@ -272,8 +272,8 @@ export default myComponent;`}
 				<Paragraph>
 					If a property of the object that is passed back to the{' '}
 					<Highlight title={'handleSubmit'} /> function, is empty,
-					then it's because the value that is inserted in the field
-					doesn&apos;t satisfy the validation criteria.
+					then it&apos;s because the value that is inserted in the
+					field doesn&apos;t satisfy the validation criteria.
 				</Paragraph>
 
 				<Paragraph>

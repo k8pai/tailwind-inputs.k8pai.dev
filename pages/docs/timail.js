@@ -87,8 +87,6 @@ export async function getStaticProps() {
 }
 
 export default function timail({ data }) {
-	const [validateType, setValidateType] = useState('username');
-
 	const handleSubmit = (values) => {
 		console.log(values);
 	};
@@ -108,9 +106,9 @@ export default function timail({ data }) {
 				</p>
 				<Note>
 					If during the submission of a form and is enclosed within{' '}
-					&lt;TiForm /&gt; inbuilt component, it'll pass the value of
-					the mail field inside the handler function as an empty
-					string.
+					&lt;TiForm /&gt; inbuilt component, it&apos;ll pass the
+					value of the mail field inside the handler function as an
+					empty string.
 				</Note>
 			</div>
 

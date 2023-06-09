@@ -47,7 +47,7 @@ export default function introduction() {
 					built using Tailwind CSS. These components are designed to
 					help you speed up your development process and simplify your
 					workflow by handling state management for input fields,
-					allowing you to focus on building your application's
+					allowing you to focus on building your application&apos;s
 					functionality rather than spending time configuring inputs.
 				</Paragraph>
 
@@ -69,7 +69,7 @@ export default function introduction() {
 				</Paragraph>
 
 				<Paragraph>
-					Let's dive in and see how to get started with Tailwind
+					Let&apos;s dive in and see how to get started with Tailwind
 					Inputs.
 				</Paragraph>
 			</div>
@@ -96,8 +96,8 @@ export default function introduction() {
 						<div>
 							<b>Tailwind CSS:</b> Tailwind Inputs is built using
 							Tailwind CSS, so you need to have Tailwind CSS
-							installed in your project. If you haven't installed
-							Tailwind CSS, you can follow the official
+							installed in your project. If you haven&apos;t
+							installed Tailwind CSS, you can follow the official
 							documentation to install it.
 						</div>
 					</div>
@@ -106,8 +106,8 @@ export default function introduction() {
 						<div>
 							<b> React:</b> Tailwind Inputs is built on top of
 							React, so you need to have React installed in your
-							project. If you haven't installed React, you can
-							follow the official documentation to install it.
+							project. If you haven&apos;t installed React, you
+							can follow the official documentation to install it.
 						</div>
 					</div>
 					<div className="flex items-start">
@@ -124,8 +124,8 @@ export default function introduction() {
 						<div>
 							<b>Npm:</b> Tailwind Inputs is distributed as an npm
 							package, so you need to have npm installed on your
-							system. npm comes bundled with Node.js, so you don't
-							need to install it separately.
+							system. npm comes bundled with Node.js, so you
+							don&apos;t need to install it separately.
 						</div>
 					</div>
 					<div className="flex items-start">

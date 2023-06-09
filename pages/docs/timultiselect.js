@@ -731,8 +731,8 @@ value={'ronaldo'}
 					<Paragraph>
 						Selecting a large number of options within a smaller
 						width multiselect component may lead to a scrollbar that
-						you may or maynot be annoyed with. Here's a quick tip to
-						make changes if you feel like having any.
+						you may or maynot be annoyed with. Here&apos;s a quick
+						tip to make changes if you feel like having any.
 					</Paragraph>
 
 					<Paragraph>
