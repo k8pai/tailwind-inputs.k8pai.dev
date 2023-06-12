@@ -105,6 +105,7 @@ export default function tiform({ data }) {
 							placeholder={'Enter Your Username'}
 							mandatory
 							style={{
+								mode: 'dark',
 								label: 'text-white font-semibold tracking-wide ml-3',
 								size: 'max-w-full',
 							}}
@@ -206,7 +207,6 @@ export default myComponent;`}
 
 				<CodeBlock
 					lang={'javascript'}
-					copy
 					code={`<TiForm
 	className="w-full bg-transparent any-tailwind-utiltiy-class customize-yourself."
 >
@@ -272,8 +272,8 @@ export default myComponent;`}
 				<Paragraph>
 					If a property of the object that is passed back to the{' '}
 					<Highlight title={'handleSubmit'} /> function, is empty,
-					then it's because the value that is inserted in the field
-					doesn&apos;t satisfy the validation criteria.
+					then it&apos;s because the value that is inserted in the
+					field doesn&apos;t satisfy the validation criteria.
 				</Paragraph>
 
 				<Paragraph>
@@ -293,9 +293,8 @@ export default myComponent;`}
 					<Highlight title={'validate'} /> property, when returns an
 					empty string, values are not valid enough.
 				</Paragraph>
-
-				<Paragraph>Happy coding!</Paragraph>
 			</div>
+			<Paragraph>Happy coding!</Paragraph>
 		</div>
 	);
 }

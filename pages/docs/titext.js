@@ -15,7 +15,7 @@ import {
 } from '@k8pai/tailwind-inputs';
 import Paragraph from '../../components/Paragraph';
 
-export default function titext() {
+export default function Titext() {
 	const [validateType, setValidateType] = useState('username');
 
 	const handleSubmit = (values) => {
@@ -78,6 +78,7 @@ export default function titext() {
 				</LiveCode>
 				<CodeBlock
 					lang={'javascript'}
+					copy
 					code={`import { TiForm, TiText } from '@k8pai/tailwind-inputs';
 
 const myComponent = () => {
@@ -307,7 +308,8 @@ export default myComponent;`}
 
 				<p className="font-semibold mb-4 text-lg tracking-wider">
 					Like the Readonly input field, you can have a readonly Text
-					field, which look similar to a text, but indeed which isn't.
+					field, which look similar to a text, but indeed which
+					isn&apos;t.
 				</p>
 
 				<LiveCode>
@@ -529,6 +531,8 @@ export default myComponent;`}
 />`}
 				/>
 			</div>
+
+			<Paragraph>Happy coding!</Paragraph>
 		</div>
 	);
 }

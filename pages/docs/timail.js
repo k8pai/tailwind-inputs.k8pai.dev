@@ -6,10 +6,7 @@ import Paragraph from '../../components/Paragraph';
 import Highlight from '../../components/Highlight';
 import InThisPage from '../../components/InThisPage';
 import Breadcrums from '../../components/Breadcrums';
-import {
-	TiForm,
-	TiMail,
-} from '@k8pai/tailwind-inputs';
+import { TiForm, TiMail } from '@k8pai/tailwind-inputs';
 import Note from '../../components/Note';
 import Table from '../../components/Table';
 
@@ -90,8 +87,6 @@ export async function getStaticProps() {
 }
 
 export default function timail({ data }) {
-	const [validateType, setValidateType] = useState('username');
-
 	const handleSubmit = (values) => {
 		console.log(values);
 	};
@@ -111,9 +106,9 @@ export default function timail({ data }) {
 				</p>
 				<Note>
 					If during the submission of a form and is enclosed within{' '}
-					&lt;TiForm /&gt; inbuilt component, it'll pass the value of
-					the mail field inside the handler function as an empty
-					string.
+					&lt;TiForm /&gt; inbuilt component, it&apos;ll pass the
+					value of the mail field inside the handler function as an
+					empty string.
 				</Note>
 			</div>
 
@@ -156,6 +151,7 @@ export default function timail({ data }) {
 				</LiveCode>
 				<CodeBlock
 					lang={'javascript'}
+					copy
 					code={`import { TiForm, TiMail } from '@k8pai/tailwind-inputs';
 
 const myComponent = () => {
@@ -604,9 +600,8 @@ export default myComponent;`}
 />`}
 					/>
 				</div>
-
-				<Paragraph>Happy coding!</Paragraph>
 			</div>
+			<Paragraph>Happy coding!</Paragraph>
 		</div>
 	);
 }

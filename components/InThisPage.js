@@ -28,7 +28,7 @@ const InThisPage = () => {
 	}, [router.asPath]);
 
 	return (
-		<div className="sticky top-4 mt-3 h-fit pl-2">
+		<div className="hidden max-w-[200px] w-full xl:block sticky top-4 mt-3 h-fit pl-2">
 			<h1 className="p-1 w-full text-lg font-semibold capitalize text-cyan-200">
 				In This page
 			</h1>

@@ -129,6 +129,9 @@ export default function tiselect({ tiselectProps: data, optionsKeyValue }) {
 								'mbappe',
 								'haaland',
 							]}
+							style={{
+								mode: 'dark',
+							}}
 							className={'space-y-2'}
 						/>
 					</TiForm>
@@ -156,6 +159,9 @@ const myComponent = () => {
 					'mbappe',
 					'haaland',
 				]}
+				style= {{
+					mode: 'dark'
+				}}
 				className={'space-y-2'}
 			/>
 		</TiForm>
@@ -201,6 +207,7 @@ export default myComponent;`}
 								'haaland',
 							]}
 							style={{
+								mode: 'dark',
 								size: 'max-w-full',
 							}}
 							className={'space-y-2'}
@@ -215,6 +222,7 @@ export default myComponent;`}
 								'haaland',
 							]}
 							style={{
+								mode: 'dark',
 								size: 'max-w-lg',
 							}}
 							className={'space-y-2'}
@@ -229,6 +237,7 @@ export default myComponent;`}
 								'haaland',
 							]}
 							style={{
+								mode: 'dark',
 								size: 'max-w-sm',
 							}}
 							className={'space-y-2'}
@@ -247,6 +256,7 @@ export default myComponent;`}
 		'haaland',
 	]}
 	style={{
+		mode: 'dark',
 		size: 'max-w-full',
 	}}
 	className={'space-y-2'}
@@ -261,6 +271,7 @@ export default myComponent;`}
 		'haaland',
 	]}
 	style={{
+		mode: 'dark',
 		size: 'max-w-lg',
 	}}
 	className={'space-y-2'}
@@ -275,6 +286,7 @@ export default myComponent;`}
 		'haaland',
 	]}
 	style={{
+		mode: 'dark',
 		size: 'max-w-sm',
 	}}
 	className={'space-y-2'}
@@ -339,6 +351,7 @@ export default myComponent;`}
 								{ value: 'mbappe', disable: false },
 								{ value: 'haaland', disable: false },
 							]}
+							style={{ mode: 'dark' }}
 							className={'space-y-2'}
 						/>
 					</TiForm>
@@ -348,6 +361,7 @@ export default myComponent;`}
 					code={`<TiSelect
 	name={'small'}
 	options={arr}
+	style={{ mode: 'dark' }}
 	className={'space-y-2'}
 />`}
 				/>
@@ -593,9 +607,8 @@ export default myComponent;`}
 />`}
 					/>
 				</div>
-
-				<Paragraph>Happy coding!</Paragraph>
 			</div>
+			<Paragraph>Happy coding!</Paragraph>
 		</div>
 	);
 }

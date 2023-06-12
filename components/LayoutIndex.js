@@ -1,6 +1,7 @@
 import Head from 'next/head';
 import React from 'react';
 import Navigation from './Navigation';
+import Footer from './Footer';
 
 const LayoutIndex = ({ children }) => {
 	return (
@@ -16,6 +17,7 @@ const LayoutIndex = ({ children }) => {
 			<div className="w-full mx-auto flex flex-col min-h-screen h-full bg-[#181818]">
 				<Navigation />
 				<div className="w-full p-px">{children}</div>
+				<Footer />
 			</div>
 		</div>
 	);

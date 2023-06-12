@@ -51,11 +51,11 @@ import {
 import { BsClipboard, BsCheck } from 'react-icons/bs';
 import { HiCheck, HiOutlineClipboard } from 'react-icons/hi';
 
-const CodeBlock = ({ code, copy, lang }) => {
+const CodeBlock = ({ code, copy, lang, className = 'w-full' }) => {
 	const [isCopied, setIsCopied] = useState(false);
 
 	const handleCopyClick = () => {
-		navigator.clipboard.writeText(code);
+		navigator.clipboard.writeText(code.trim());
 		setIsCopied(true);
 		setTimeout(() => {
 			setIsCopied(false);
@@ -71,7 +71,9 @@ const CodeBlock = ({ code, copy, lang }) => {
 	// shadesOfPurple,
 	// vscDarkPlus,
 	return (
-		<div className="relative group bg-[#1e1e1e] rounded-xl mb-6 w-full">
+		<div
+			className={`relative group bg-[#1e1e1e] rounded-xl mb-6 ${className}`}
+		>
 			{copy && (
 				<button
 					className={`group absolute top-0 right-0 p-4 bg-[#1e1e1e] rounded-lg transition-all duration-150`}
