@@ -13,44 +13,6 @@ import Link from 'next/link';
 import { GiConsoleController } from 'react-icons/gi';
 
 export async function getStaticProps() {
-	// name,
-	// label = 'Categories',
-	// style = {
-	// 	mode: 'light',
-	// },
-	// fallback = 'No Tags Selected',
-	// placeholder = 'Enter Tags Seperated By ,',
-	// autoComplete = 'off',
-	// getTags = () => {},
-	// ...rest
-
-	const option = [
-		{
-			title: 'ronaldo',
-			content: 'this is the content',
-			isOpen: false,
-		},
-		{
-			title: 'messi',
-			content: 'this is the content',
-			isOpen: false,
-		},
-		{
-			title: 'neymar',
-			content: 'this is the content',
-			isOpen: false,
-		},
-		{
-			title: 'mbappe',
-			content: 'this is the content',
-			isOpen: false,
-		},
-		{
-			title: 'haaland',
-			content: 'this is the content',
-			isOpen: false,
-		},
-	];
 	const TiSearchWithTagProps = [
 		{
 			props: 'name',
@@ -94,11 +56,11 @@ export async function getStaticProps() {
 		},
 	];
 	return {
-		props: { option, TiSearchWithTagProps },
+		props: { TiSearchWithTagProps },
 	};
 }
 
-export default function Titagsearch({ option, TiSearchWithTagProps }) {
+export default function Titagsearch({ TiSearchWithTagProps }) {
 	const handleSubmit = (values) => {
 		console.log(values);
 	};
@@ -426,9 +388,9 @@ export default myComponent;`}
 						<CodeBlock
 							lang={'javascript'}
 							code={`const handleTags = (values) => {
-								console.log(values)
-								// or perform any operations that you want with this tags.
-							}`}
+	console.log(values)
+	// or perform any operations that you want with this tags.
+}`}
 						/>
 					</div>
 
