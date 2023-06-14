@@ -3,16 +3,26 @@ import Quoted from '../../components/Quoted';
 import CodeBlock from '../../components/Code';
 import LiveCode from '../../components/LiveCode';
 import Paragraph from '../../components/Paragraph';
-import Highlight from '../../components/Highlight';
 import InThisPage from '../../components/InThisPage';
 import Breadcrums from '../../components/Breadcrums';
-import { TiForm, TiDisclosure, TiSearchWithTag } from '@k8pai/tailwind-inputs';
-import Note from '../../components/Note';
+import { TiSearchWithTag } from '@k8pai/tailwind-inputs';
 import Table from '../../components/Table';
-import Link from 'next/link';
-import { GiConsoleController } from 'react-icons/gi';
 
 export async function getStaticProps() {
+	// name,
+	// label = 'Categories',
+	// style = {
+	// 	mode: 'light',
+	// },
+	// infoNote = 'Space are not allowed for tags, try snake casing.',
+	// splitter = ' ',
+	// fallback = 'No Tags Selected',
+	// buttonText = '',
+	// placeholder = 'Tags realted to Categories',
+	// autoComplete = 'off',
+	// buttonComponent: Button = MdAdd,
+	// fallbackComponent = CiShoppingTag,
+	// getTags = () => {},
 	const TiSearchWithTagProps = [
 		{
 			props: 'name',
@@ -25,6 +35,35 @@ export async function getStaticProps() {
 			type: 'string',
 			definition:
 				'A label that indicates the purpose or the type of data to be provided',
+		},
+		{
+			props: 'infoNote',
+			type: 'string',
+			definition:
+				'A short informational field below the input field, where you can provide an informational message on how to apply tags.',
+		},
+		{
+			props: 'splitter',
+			type: 'string',
+			definition: 'A value that is used to split tags, used as a regex.',
+		},
+		{
+			props: 'buttonText',
+			type: 'string',
+			definition:
+				'The text to be displayed in the right side of the input field. default hidden, but you can give a text value to display it.',
+		},
+		{
+			props: 'buttonComponent',
+			type: 'IconType',
+			definition:
+				'An IconType value that can be used instead of button. default Icon is MdAdd from `react-icons`',
+		},
+		{
+			props: 'fallbackComponent',
+			type: 'IconType',
+			definition:
+				'An IconType value that can to indicate tag infront of the component. default Icon is MdAdd from `react-icons`',
 		},
 		{
 			props: 'fallback',
@@ -61,10 +100,6 @@ export async function getStaticProps() {
 }
 
 export default function Titagsearch({ TiSearchWithTagProps }) {
-	const handleSubmit = (values) => {
-		console.log(values);
-	};
-
 	return (
 		<div className="h-fit flex flex-col space-y-2">
 			<div>
