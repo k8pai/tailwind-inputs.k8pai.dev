@@ -7,6 +7,7 @@ import InThisPage from '../../components/InThisPage';
 import Breadcrums from '../../components/Breadcrums';
 import { TiSearchWithTag } from '@k8pai/tailwind-inputs';
 import Table from '../../components/Table';
+import Note from '../../components/Note';
 
 export async function getStaticProps() {
 	// name,
@@ -268,197 +269,374 @@ export default myComponent;`}
 	...restProps 
 />`}
 					/>
+				</div>
 
-					{/* label props  */}
-					<div>
-						<div className="flex items-baseline mb-4">
-							<h2
-								id={'Label'}
-								className="text-2xl font-bold font-mono pt-8"
-							>
-								Label
-							</h2>
-							<Breadcrums
-								type={'linking'}
-								url={'/docs/titagsearch#Label'}
-							/>
-						</div>
+				{/* label props  */}
+				<div>
+					<div className="flex items-baseline mb-4">
+						<h2
+							id={'Label'}
+							className="text-2xl font-bold font-mono pt-8"
+						>
+							Label
+						</h2>
+						<Breadcrums
+							type={'linking'}
+							url={'/docs/titagsearch#Label'}
+						/>
+					</div>
 
-						<Paragraph>
-							The <Quoted>label</Quoted> props is an optional
-							props, that basically acts similar to the label tag
-							in html.
-						</Paragraph>
+					<Paragraph>
+						The <Quoted>label</Quoted> props is an optional props,
+						that basically acts similar to the label tag in html.
+					</Paragraph>
 
-						<CodeBlock
-							lang={'javascript'}
-							code={`<TiSearchWithTag
+					<CodeBlock
+						lang={'javascript'}
+						code={`<TiSearchWithTag
 	label='Search With Tags'
 	...restProps 
 />`}
+					/>
+				</div>
+
+				{/* infoNote props  */}
+				<div>
+					<div className="flex items-baseline mb-4">
+						<h2
+							id={'InfoNote'}
+							className="text-2xl font-bold font-mono pt-8"
+						>
+							infoNote
+						</h2>
+						<Breadcrums
+							type={'linking'}
+							url={'/docs/titagsearch#InfoNote'}
 						/>
 					</div>
 
-					{/* fallback props  */}
-					<div>
-						<div className="flex items-baseline mb-4">
-							<h2
-								id={'Fallback'}
-								className="text-2xl font-bold font-mono pt-8"
-							>
-								Fallback
-							</h2>
-							<Breadcrums
-								type={'linking'}
-								url={'/docs/titagsearch#Fallback'}
-							/>
-						</div>
+					<Paragraph>
+						The <Quoted>infoNote</Quoted> props is an optional props
+						that will let you provide additional information on what
+						tags are to be included, or how can tags be added, or
+						any custom messge as well.
+					</Paragraph>
 
-						<Paragraph>
-							The <Quoted>fallback</Quoted> props represents the
-							message that appears to be when no tags are
-							selected.
-						</Paragraph>
+					<CodeBlock
+						lang={'javascript'}
+						code={`<TiSearchWithTag
+	infoNote='Space are not allowed for tags, try snake casing.'
+	...restProps 
+/>`}
+					/>
+				</div>
 
-						<CodeBlock
-							lang={'javascript'}
-							code={`<TiSearchWithTag
+				{/* splitter props  */}
+				<div>
+					<div className="flex items-baseline mb-4">
+						<h2
+							id={'Splitter'}
+							className="text-2xl font-bold font-mono pt-8"
+						>
+							Splitter
+						</h2>
+						<Breadcrums
+							type={'linking'}
+							url={'/docs/titagsearch#Splitter'}
+						/>
+					</div>
+
+					<Paragraph>
+						This is a regex type that is used to seperate tags from
+						each other. You can specify the character that is used
+						to split the tags. Some of the reccomended and top most
+						used tag splitting characters are as follows.
+					</Paragraph>
+
+					<CodeBlock
+						lang={'javascript'}
+						code={`splitters = [' ', '-', ',', ....]`}
+					/>
+
+					<Note>
+						Default value of splitter is &apos; &apos; and without
+						providing a value to it, the tags will not be able to
+						include spaces between them.
+					</Note>
+
+					<CodeBlock
+						lang={'javascript'}
+						code={`<TiSearchWithTag
+	splitter=' '
+	...restProps 
+/>`}
+					/>
+				</div>
+
+				{/* buttonText props  */}
+				<div>
+					<div className="flex items-baseline mb-4">
+						<h2
+							id={'ButtonText'}
+							className="text-2xl font-bold font-mono pt-8"
+						>
+							buttonText
+						</h2>
+						<Breadcrums
+							type={'linking'}
+							url={'/docs/titagsearch#ButtonText'}
+						/>
+					</div>
+
+					<Paragraph>
+						An alternative for the default{' '}
+						<Quoted>buttonComponent</Quoted> props that is used for
+						the additional button in the input field for more
+						interactive user experience.
+					</Paragraph>
+
+					<CodeBlock
+						lang={'javascript'}
+						code={`<TiSearchWithTag
+	buttonText='add'
+	...restProps 
+/>`}
+					/>
+				</div>
+
+				{/* buttonComponent props  */}
+				<div>
+					<div className="flex items-baseline mb-4">
+						<h2
+							id={'ButtonComponent'}
+							className="text-2xl font-bold font-mono pt-8"
+						>
+							buttonComponent
+						</h2>
+						<Breadcrums
+							type={'linking'}
+							url={'/docs/titagsearch#ButtonComponent'}
+						/>
+					</div>
+
+					<Paragraph>
+						An <Quoted>IconType</Quoted> submit button to add tags.
+						Default Icon is <Quoted>MdAdd</Quoted> from{' '}
+						<Quoted>react-icons</Quoted>.
+					</Paragraph>
+
+					<Note>
+						<Quoted>tailwind-inputs</Quoted> syncs in good with{' '}
+						<Quoted>react-icons</Quoted>. Custom icons works as
+						well, a small sample for the Icon Component will be
+						added soon.
+					</Note>
+
+					<CodeBlock
+						lang={'javascript'}
+						code={`<TiSearchWithTag
+	buttonComponent='MdAdd'
+	...restProps 
+/>`}
+					/>
+				</div>
+
+				{/* fallbackComponent props  */}
+				<div>
+					<div className="flex items-baseline mb-4">
+						<h2
+							id={'FallbackComponent'}
+							className="text-2xl font-bold font-mono pt-8"
+						>
+							fallbackComponent
+						</h2>
+						<Breadcrums
+							type={'linking'}
+							url={'/docs/titagsearch#FallbackComponent'}
+						/>
+					</div>
+
+					<Paragraph>
+						An <Quoted>IconType</Quoted> for the fallback component
+						that shows up when there are no tags selected. Default
+						Icon is <Quoted>CiShoppingTag</Quoted> from{' '}
+						<Quoted>react-icons</Quoted>.
+					</Paragraph>
+
+					<Note>
+						<Quoted>tailwind-inputs</Quoted> syncs in good with{' '}
+						<Quoted>react-icons</Quoted>. Custom icons works as
+						well, a small sample for the Icon Component will be
+						added soon.
+					</Note>
+
+					<CodeBlock
+						lang={'javascript'}
+						code={`<TiSearchWithTag
+	fallbackComponent='CiShoppingTag'
+	...restProps 
+/>`}
+					/>
+				</div>
+
+				{/* fallback props  */}
+				<div>
+					<div className="flex items-baseline mb-4">
+						<h2
+							id={'Fallback'}
+							className="text-2xl font-bold font-mono pt-8"
+						>
+							Fallback
+						</h2>
+						<Breadcrums
+							type={'linking'}
+							url={'/docs/titagsearch#Fallback'}
+						/>
+					</div>
+
+					<Paragraph>
+						The <Quoted>fallback</Quoted> props represents the
+						message that appears to be when no tags are selected.
+					</Paragraph>
+
+					<CodeBlock
+						lang={'javascript'}
+						code={`<TiSearchWithTag
 	fallback='No Tags selected.'
 	...restProps 
 />`}
+					/>
+				</div>
+
+				{/* placeholder props  */}
+				<div>
+					<div className="flex items-baseline mb-4">
+						<h2
+							id={'Placeholder'}
+							className="text-2xl font-bold font-mono pt-8"
+						>
+							Placeholder
+						</h2>
+						<Breadcrums
+							type={'linking'}
+							url={'/docs/titagsearch#Placeholder'}
 						/>
 					</div>
 
-					{/* placeholder props  */}
-					<div>
-						<div className="flex items-baseline mb-4">
-							<h2
-								id={'Placeholder'}
-								className="text-2xl font-bold font-mono pt-8"
-							>
-								Placeholder
-							</h2>
-							<Breadcrums
-								type={'linking'}
-								url={'/docs/titagsearch#Placeholder'}
-							/>
-						</div>
+					<Paragraph>
+						<Quoted>placeholder</Quoted> is the placeholder that you
+						can customize with string values for displaying info on
+						type of tags user is to select. Same as that of
+						placeholder attribute of input fields.
+					</Paragraph>
 
-						<Paragraph>
-							<Quoted>placeholder</Quoted> is the placeholder that
-							you can customize with string values for displaying
-							info on type of tags user is to select. Same as that
-							of placeholder attribute of input fields.
-						</Paragraph>
-
-						<CodeBlock
-							lang={'javascript'}
-							code={`<TiSearchWithTag
+					<CodeBlock
+						lang={'javascript'}
+						code={`<TiSearchWithTag
 	placeholder='tech skills seperated by comma'
 	...restProps 
 />`}
+					/>
+				</div>
+
+				{/* autocomplete props  */}
+				<div>
+					<div className="flex items-baseline mb-4">
+						<h2
+							id={'Autocomplete'}
+							className="text-2xl font-bold font-mono pt-8"
+						>
+							Autocomplete
+						</h2>
+						<Breadcrums
+							type={'linking'}
+							url={'/docs/titagsearch#Autocomplete'}
 						/>
 					</div>
 
-					{/* autocomplete props  */}
-					<div>
-						<div className="flex items-baseline mb-4">
-							<h2
-								id={'Autocomplete'}
-								className="text-2xl font-bold font-mono pt-8"
-							>
-								Autocomplete
-							</h2>
-							<Breadcrums
-								type={'linking'}
-								url={'/docs/titagsearch#Autocomplete'}
-							/>
-						</div>
+					<Paragraph>
+						When turned on, gives suggestions in the input field.
+						Default value is <Quoted>Off</Quoted>.
+					</Paragraph>
 
-						<Paragraph>
-							When turned on, gives suggestions in the input
-							field. Default value is <Quoted>Off</Quoted>.
-						</Paragraph>
-
-						<CodeBlock
-							lang={'javascript'}
-							code={`<TiSearchWithTag
+					<CodeBlock
+						lang={'javascript'}
+						code={`<TiSearchWithTag
 	autoComplete="on"
 	...restProps 
 />`}
+					/>
+				</div>
+
+				{/* getTags props  */}
+				<div>
+					<div className="flex items-baseline mb-4">
+						<h2
+							id={'GetTags'}
+							className="text-2xl font-bold font-mono pt-8"
+						>
+							getTags
+						</h2>
+						<Breadcrums
+							type={'linking'}
+							url={'/docs/titagsearch#GetTags'}
 						/>
 					</div>
 
-					{/* getTags props  */}
-					<div>
-						<div className="flex items-baseline mb-4">
-							<h2
-								id={'GetTags'}
-								className="text-2xl font-bold font-mono pt-8"
-							>
-								getTags
-							</h2>
-							<Breadcrums
-								type={'linking'}
-								url={'/docs/titagsearch#GetTags'}
-							/>
-						</div>
+					<Paragraph>
+						<Quoted>getTags</Quoted> is a function that can be used
+						to get all the selected tags, at the current instance.
+						You can deal with the values to perform custom
+						operations, fetch data depending on what the user has
+						selected.
+					</Paragraph>
 
-						<Paragraph>
-							<Quoted>getTags</Quoted> is a function that can be
-							used to get all the selected tags, at the current
-							instance. You can deal with the values to perform
-							custom operations, fetch data depending on what the
-							user has selected.
-						</Paragraph>
-
-						<CodeBlock
-							lang={'javascript'}
-							code={`<TiSearchWithTag
+					<CodeBlock
+						lang={'javascript'}
+						code={`<TiSearchWithTag
 	getTags={handleTags}
 	...restProps 
 />`}
-						/>
+					/>
 
-						<CodeBlock
-							lang={'javascript'}
-							code={`const handleTags = (values) => {
+					<CodeBlock
+						lang={'javascript'}
+						code={`const handleTags = (values) => {
 	console.log(values)
 	// or perform any operations that you want with this tags.
 }`}
+					/>
+				</div>
+
+				{/* style props  */}
+				<div>
+					<div className="flex items-baseline mb-4">
+						<h2
+							id={'Style'}
+							className="text-2xl font-bold font-mono pt-8"
+						>
+							Style
+						</h2>
+						<Breadcrums
+							type={'linking'}
+							url={'/docs/titagsearch#Style'}
 						/>
 					</div>
 
-					{/* style props  */}
-					<div>
-						<div className="flex items-baseline mb-4">
-							<h2
-								id={'Style'}
-								className="text-2xl font-bold font-mono pt-8"
-							>
-								Style
-							</h2>
-							<Breadcrums
-								type={'linking'}
-								url={'/docs/titagsearch#Style'}
-							/>
-						</div>
+					<Paragraph>
+						An optional field that can be used to customize the
+						component to your wish.
+					</Paragraph>
 
-						<Paragraph>
-							An optional field that can be used to customize the
-							component to your wish.
-						</Paragraph>
-
-						<CodeBlock
-							lang={'javascript'}
-							code={`<TiDisclosure
+					<CodeBlock
+						lang={'javascript'}
+						code={`<TiDisclosure
 	style={{
 		mode: 'dark',
 	}}
 	...restProps 
 />`}
-						/>
-					</div>
+					/>
 				</div>
 				<Paragraph>Happy coding!</Paragraph>
 			</div>
